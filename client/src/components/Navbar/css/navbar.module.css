@@ -1,0 +1,98 @@
+.navbarContainer{
+    width: 100vw;
+    height: 7rem;
+    background-image: linear-gradient(to bottom,
+            black 20%,
+            transparent);
+    position: absolute;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo{
+    font-size: 2rem;
+    color: #fff;
+    text-transform: uppercase;
+    margin-left: 2rem;
+}
+.navBtn{
+    position: relative;
+    width: 4rem;
+    height: 4rem;
+    margin-right: 2rem;
+    cursor: pointer;
+}
+
+.line{
+    position: absolute;
+    width: 3rem;
+    height: 0.2rem;
+    background-color: #fff;
+    border-radius: 2rem;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+.navBtn:hover .line{
+    background-color: rgb(90, 88, 88);
+}
+.line::before{
+    content: "";
+    width: 0;
+    height: 0.2rem;
+    background-color: #fff;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 0.2rem;
+}
+.line:nth-child(1)::before{
+    transition: width 0.3s;
+}
+.line:nth-child(3)::before{
+    transition: width 0.5s;
+}
+.line:nth-child(2)::before{
+    transition: width 0.7s;
+}
+.navBtn:hover .line::before{
+    width: 100%;
+}
+
+.line:nth-child(1){
+    top: 1rem;
+    transition: transform 1s;
+}
+
+.line:nth-child(2){
+   top: 3rem;
+   transition: transform 1s;
+}
+.right{
+    width: 25rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-around; 
+}
+.login{
+    display: flex;
+    width: 15rem;
+    font-size: 2rem;
+   color: white;
+   cursor: pointer;
+   align-items: center;
+}
+.logoUser{
+    background-color: #ff8533;
+    width: 4rem;
+    height: 4rem;
+    font-size: 3rem;
+    border-radius: 50%;
+    margin-right: 2rem;
+    padding: 0.3rem;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}

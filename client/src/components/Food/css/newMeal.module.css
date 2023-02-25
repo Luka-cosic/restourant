@@ -1,0 +1,74 @@
+.container{
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0,250,250,0.5);
+    z-index: 1000;
+}
+.close{
+    position: absolute;
+    top: 5rem;
+    right: 5rem;
+    font-size: 5rem;
+    cursor: pointer;
+}
+.card{
+    width: 40rem;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start; 
+    padding: 2rem 0.5rem;
+    border-radius: 0.6rem;
+    box-shadow: 0.1rem 0.1rem 0.3rem #3399ff;
+}
+.heading{
+    color: #3399ff;
+    font-size: 4rem;
+    margin-bottom: 2rem;
+    text-shadow: 0.1rem 0.1rem black;
+}
+.title, .textarea{
+    width: 30rem;
+    height: 4rem;
+    margin-bottom: 2rem;
+    outline: none;
+    border: none;
+    box-shadow: 0.1rem 0.1rem 0.3rem black;
+    border-radius: 0.6rem;
+    padding: 0.3rem;
+}
+.title:focus, .textarea:focus{
+    box-shadow: 0.3rem 0.3rem 0.4rem black;
+}
+.textarea{
+    max-width: 30rem;
+    min-width: 30rem;
+    max-height: 20rem;
+    min-height: 4rem;
+
+}
+input[type="file"]{
+    margin-bottom: 1rem;
+}
+
+.addBtn, .editBtn{
+    width: 30rem;
+    height: 4rem;
+    background-color:  #3399ff;
+    border: none;
+    font-size: 2rem;
+    color: #fff;
+    border-radius: 0.2rem;
+    box-shadow: 0.1rem 0.1rem 0.3rem black;
+    cursor: pointer;
+}
+.editBtn{
+    background-color: #ff0066;
+    margin-bottom: 1rem;
+}
+

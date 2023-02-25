@@ -1,0 +1,235 @@
+.templates{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    perspective: 90rem;
+    overflow: hidden;
+}
+.template{
+    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.aboutUsTextWrapp{
+    position: absolute;
+    z-index: 1;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+.aboutUsHeading{
+    font-size: 5rem;
+    letter-spacing: 0.3rem;
+    text-transform: uppercase;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 300;
+    color: white;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+.aboutUsText{
+    font-size: 2rem;
+    width: 50rem;
+    text-align: center;
+    color: white;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 200;
+    letter-spacing: 0.2rem;
+    margin-bottom: 2rem;
+}
+.aboutUsBtnWrapp{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.btnEfect{
+    background-color: white;
+    width: 100%;
+    height: 0;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transition: 0.5s 0.1s;
+}
+
+.aboutUsBtnWrapp:hover .btnEfect{
+    height: 100%;
+}
+.aboutUsBtn{
+    width: 20rem;
+    color: white;
+    background-color:transparent;
+    border-left: none;
+    border-right: none;
+    padding: 1rem 0;
+    font-size: 2rem;
+    cursor: pointer;
+    transition: color 0.3s;
+    z-index: 5;
+}
+.aboutUsBtnWrapp:hover .aboutUsBtn{
+    color: black;
+}
+.aboutUsBtn::before{
+    content: "";
+    background-color: white;
+    width: 0;
+    height: 0.2rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: width 0.2s;
+}
+.aboutUsBtn:hover::before{
+    width: 100%;
+}
+.aboutUsBtn::after{
+    content: "";
+    background-color: white;
+    width: 0;
+    height: 0.2rem;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    transition: width 0.2s;
+}
+.aboutUsBtn:hover::after{
+    width: 100%;
+}
+
+.tempImg{
+    opacity: 0.5;
+}
+.template_1{
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    transform: translateZ(0) translateY(0) rotateX(0);
+    /* z-index: 2; */
+}
+.change1{
+    animation: movePocture1;
+    animation-duration: 2s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+}
+.template_2{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    transform: translateZ(-300rem) translateY(-150rem) rotateX(-60deg);
+}
+.change2{
+    animation: movePocture2;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in-out; 
+}
+.template_3{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    transform: translateZ(-350rem) translateY(0rem) rotateX(0deg);
+    
+}
+.change3{
+    animation: movePocture3;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in-out; 
+}
+.template_4{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    transform: translateZ(-300rem) translateY(160rem) rotateX(60deg);
+     
+}
+.change4{
+    animation: movePocture4;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in-out;
+    z-index: 10;
+}
+img{
+    width: 100%;
+    height: 100%;
+}
+@keyframes movePocture4{
+    0%{
+        transform: translateZ(-300rem) translateY(160rem) rotateX(60deg);
+        
+    }
+    25%{
+        transform: translateZ(-200rem) translateY(100rem) rotateX(15deg);
+        
+    }
+    50%{
+        transform: translateZ(-50rem) translateY(0) rotateX(0);
+        
+    }
+    75%{
+        transform: translateZ(-50rem) translateY(0) rotateX(0);
+        
+    }
+    100%{
+        transform: translateZ(0) translateY(0) rotateX(0);
+        
+    }   
+}
+@keyframes movePocture3{
+    0%{
+        transform: translateZ(-350rem) translateY(0rem) rotateX(0deg);
+        
+    }
+    25%{
+        transform: translateZ(-300rem) translateY(50rem) rotateX(15deg);
+        
+    }
+    100%{
+        transform: translateZ(-300rem) translateY(160rem) rotateX(60deg);
+        
+    }   
+}
+
+@keyframes movePocture2{
+    0%{
+        transform: translateZ(-300rem) translateY(-150rem) rotateX(-60deg);
+        
+    }
+    25%{
+        transform: translateZ(-350rem) translateY(-100rem) rotateX(-45deg);
+        
+    }
+    100%{
+        transform: translateZ(-350rem) translateY(0rem) rotateX(0deg);
+        
+    }
+    
+}
+@keyframes movePocture1{
+    0%{
+        transform: translateZ(0);
+        opacity: 1;
+    }
+    25%{
+        transform: translateZ(-100rem) translateY(-100rem) rotateX(-90deg);
+        
+    }
+    50%{
+        transform: translateZ(-200rem) translateY(-200rem) rotateX(-90deg);
+        
+    }
+    75%{
+        transform: translateZ(-300rem) translateY(-150rem) rotateX(-60deg);
+        
+    }
+    100%{
+        transform: translateZ(-300rem) translateY(-150rem) rotateX(-60deg);
+        
+    }
+}

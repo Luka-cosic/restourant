@@ -1,0 +1,79 @@
+.meal{
+    width: 30rem;
+    height: 25rem;
+    /* background-color: blue; */
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0.1rem 0.1rem 0.3rem black;
+    background: #fff;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+}
+.imgWrapp{
+    width: 100%;
+    height: 20rem;
+    object-fit: cover;
+    border-radius: 1rem 1rem 0 0;
+    overflow: hidden;
+}
+.img{
+    width: 100%;
+    height: 100%;
+    border-radius: 1rem 1rem 0 0;
+    transition: transform 0.3s;
+}
+.img:hover{
+    transform: scale(1.2);
+}
+.titleWrapp{
+    padding: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 1rem 0;
+}
+.title{
+    font-size: 2rem;
+    text-transform: capitalize;
+    color: green;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 100;
+}
+.iconWrapp{
+    display: flex;
+    justify-content: space-between;
+    align-items: bottom;
+}
+.number{
+    font-size: 2rem;
+    margin-right: 0.5rem;
+}
+.icon{
+    font-size: 2rem;
+    color: red;
+}
+.btnsWrapp{
+    display: flex;
+    justify-content: space-around;
+}
+.delBtn{
+    width: 6rem;
+    height: 3rem;
+    border: none; 
+    background-color: #ff3333;
+    border-radius: 1rem;
+    color: #fff;
+    box-shadow: 0.1rem 0.1rem 0.2rem #ff3333;
+    cursor: pointer;
+}
+.editBtn{
+    width: 6rem;
+    height: 3rem;
+    border: none; 
+    background-color: #ff9900;
+    border-radius: 1rem;
+    color: #fff;
+    box-shadow: 0.1rem 0.1rem 0.2rem #ff9900;
+    cursor: pointer;
+}

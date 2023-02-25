@@ -1,0 +1,77 @@
+.cover{
+    transition: opacity 1s;
+}
+.change{
+    opacity: 1;
+}
+.afterAll{
+    overflow: hidden;
+}
+.change .img_3{
+    opacity: 0;
+    transition: transform 1s, opacity 1s 1s, left 1s;
+}
+.change .img_2{
+    animation: makeOpacity2 2s 1.5s;
+}
+
+.change .img_1{
+    animation: makeOpacity1 2s 3s forwards;
+}
+.afterAll .img_3{
+    opacity: 1;
+}
+.afterAll .img_2{
+    opacity: 1;
+}
+
+
+@keyframes makeOpacity1 {
+    0%{opacity: 0}
+    50%{opacity: 1}
+    100%{opacity: 1}
+}
+@keyframes makeOpacity2 {
+    0%{opacity: 0}
+    50%{opacity: 1}
+    100%{opacity: 0}
+}
+
+.pasus1{
+    transform: translateY(30rem) rotateY(90deg);
+   
+}
+.change .pasus1{
+    letter-spacing: 0;
+    opacity: 1;
+    transform: translateY(0);
+    transition: all 1s 2.5s;
+}
+.pasus2{
+    transform: translateY(30rem) rotateY(90deg);
+}
+.change .pasus2{
+    letter-spacing: 0;
+    opacity: 1;
+    transform: translateY(0);
+    transition: all 1s 2.8s;
+}
+.pasus3{
+    transform: translateY(30rem) rotateY(90deg);
+}
+.change .pasus3{
+    letter-spacing: 0;
+    opacity: 1;
+    transform: translateY(0);
+    transition: all 1s 3.1s;
+}
+.arrows{
+    opacity: 0;
+}
+.afterAll .arrows{
+    opacity: 1;
+}
+.arrowRight{
+    display: none;
+}
+

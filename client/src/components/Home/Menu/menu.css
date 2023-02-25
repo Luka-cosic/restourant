@@ -1,0 +1,16 @@
+.menu{
+    position: fixed;
+    top: 50%;
+    left: 5rem;
+    transform: translateY(-50%);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    z-index: 100;
+}
+.menuEnter{
+    font-size: 2rem;
+    font-family: 'Oswald', sans-serif;
+    cursor: pointer;
+}
