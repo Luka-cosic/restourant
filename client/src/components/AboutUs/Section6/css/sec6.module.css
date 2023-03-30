@@ -1,0 +1,39 @@
+.section6{
+    position: relative;
+    width: 100vw;
+    height: 60vh;
+    margin-top: 5rem;
+}
+.leftSide{
+    height: 100%;
+    position: absolute;
+    left: 0;
+    width: 35%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+}
+.heading{
+    font-size: 3rem;
+    margin-bottom: 2rem;
+}
+.text{
+    width: 50rem;
+    font-size: 2rem;
+    text-align: center;
+}
+.rightSide{
+    height: 100%;
+    position: absolute;
+    right: 0;
+    width:65%;
+    background-color: black;
+}
+.img{
+    width: 100%;
+    height: 100%;
+    opacity: 0.5;
+    
+}

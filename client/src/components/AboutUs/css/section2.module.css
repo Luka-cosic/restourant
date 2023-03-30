@@ -8,8 +8,7 @@
 }
 .section_2wrapp{
     width: 90vw;
-    height: 100%;
-    box-shadow: 0.2rem 0.2rem 1rem black;
+    /* box-shadow: 0.2rem 0.2rem 1rem black; */
     margin-top: 15rem;
     /* background-color: #fff; */
 }
