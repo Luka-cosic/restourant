@@ -5,12 +5,15 @@ const mealSchema = mongoose.Schema({
     title: String,
     recipe: String,
     img: String,
+    price: String,
+    prepTime: String,
+    type: String,
     likes: {
         type: [String],
         default: []
     },
     createdAt: {
-        type: Date,
+        type: String,
         default: new Date()
     }
 })

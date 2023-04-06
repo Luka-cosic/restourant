@@ -14,7 +14,7 @@ export const signUp = async (req, res) => {
 
         const hashedPassword = await bcrypt.hash(user.password, 12);
         const result = await Users.create({ firstName: user.firstName, lastName: user.lastName, email: user.email, password: hashedPassword });
-        const token = jwt.sign({ email: result.email, id: result._id }, "test", { expiresIn: "20000" });
+        const token = jwt.sign({ email: result.email, id: result._id }, "test", { expiresIn: "2h" });
         res.status(200).json({ result, token })
     } catch (error) {
         console.log(error);
@@ -31,7 +31,7 @@ export const signIn = async (req, res) => {
         const pass = await bcrypt.compare(password, result.password);
         if(!pass){return res.status(400).json({ message: "Password is wrong"})}
         
-        const token = jwt.sign({ email: result.email, id: result._id }, "test", { expiresIn: "20000" });
+        const token = jwt.sign({ email: result.email, id: result._id }, "test", { expiresIn: "2h" });
         res.status(200).json({ result, token })
     } catch (error) {
         console.log(error);

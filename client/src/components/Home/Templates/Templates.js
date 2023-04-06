@@ -17,6 +17,7 @@ function Templates() {
                 </div>
                 <img src="./images/menu/aboutUs.webp" className="tempImg" alt="" />
             </div>
+
             <div className="template_2 template change1">
             <div className="aboutUsTextWrapp">
                     <h1 className="aboutUsHeading">FOOD</h1>
@@ -28,9 +29,11 @@ function Templates() {
                 </div>
                 <img src="./images/slika2.jpg" className="tempImg" alt="" />
             </div>
+
             <div className="template_3 template change2">
                 <img src="./images/slika4.jpg" className="tempImg" alt="" />
             </div>
+            
             <div className="template_4 template change3">
                 <img src="./images/slika5.jpg" className="tempImg" alt="" />
             </div>

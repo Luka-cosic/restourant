@@ -23,6 +23,8 @@ export const fetchAll = async (req, res) => {
 }
 
 export const likeMeal = async (req, res) => {
+    console.log(req.body);
+    
     if(!req.userId){return res.status(400).json({message: "There is no user with that id"})}
     
     let id = req.params.id;
