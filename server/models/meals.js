@@ -12,6 +12,10 @@ const mealSchema = mongoose.Schema({
         type: [String],
         default: []
     },
+    comments: {
+        type: [String],
+        default: []
+    },
     createdAt: {
         type: String,
         default: new Date()

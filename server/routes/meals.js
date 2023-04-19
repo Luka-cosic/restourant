@@ -1,5 +1,5 @@
 import express from 'express';
-import { createMeal, fetchAll, likeMeal, deleteMeal, updateMeal } from "../controllers/meals.js";
+import { createMeal, fetchAll, likeMeal, deleteMeal, updateMeal, commentMeal } from "../controllers/meals.js";
 import {auth} from "../middleware/auth.js";
 
 
@@ -12,6 +12,6 @@ router.get("/fetchAll", fetchAll);
 router.post("/:id/likeMeal", auth, likeMeal);
 router.delete('/:id', deleteMeal);
 router.patch("/", updateMeal);
-
+router.post("/comments", commentMeal);
 
 export default router;

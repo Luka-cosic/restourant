@@ -13,7 +13,7 @@ export const fetchAll = ()=> { return API.get("/meals/fetchAll") };
 export const likeMeal = (id, user)=>{return API.post(`/meals/${id}/likeMeal`, user)};
 export const deleteMeal = (id)=>{return API.delete(`/meals/${id}`)};
 export const editMeal = (editMeal)=>{return API.patch(`/meals`, editMeal)};
-
+export const commentMeal = (id, comment)=>{return API.post(`meals/comments`, {id: id,comment:comment})};
 
 export const signUp = (newUser)=>{return API.post("/user/newUser", newUser)};
 export const signIn = (newUser)=>{return API.post("/user/signIn", newUser)};

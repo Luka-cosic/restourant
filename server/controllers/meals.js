@@ -23,7 +23,6 @@ export const fetchAll = async (req, res) => {
 }
 
 export const likeMeal = async (req, res) => {
-    console.log(req.body);
     
     if(!req.userId){return res.status(400).json({message: "There is no user with that id"})}
     
@@ -61,7 +60,16 @@ export const updateMeal = async (req, res) => {
     let updated = await Meals.findByIdAndUpdate({ _id: id }, meal, { new: true });
 
     res.status(201).json({ updated });
+}
 
+export const commentMeal = async (req, res) => {
+    try{
+        let doc = await Meals.findById(req.body.id);
+        doc.comments.push(req.body.comment);
+        doc.save();
 
+        res.status(201).json({comments: doc.comments});
+    }catch{
 
+    }
 }

@@ -4,17 +4,19 @@ import { Link, useNavigate } from "react-router-dom";
 import { getUser, logout } from "../Login/JS/login.js"
 import "./css/nav.css";
 
-const Navbar = ({ setCloseChange, loggedUser, setLoggedUser }) => {
+const Navbar = ({ setCloseChange, loggedUser, setLoggedUser,setUser }) => {
 
     let user = getUser();
-   
+    const navigate = useNavigate();
+
     const handleLogout = () => {
         logout();
-        setLoggedUser(null)
+        setLoggedUser(null);
+        setUser(null);
+        navigate("/")
     }
     
-    
-    const navigate = useNavigate();
+
     const closeBtn = (e) => {
         e.currentTarget.classList.toggle("change");
         setCloseChange(e.currentTarget.classList);

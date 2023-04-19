@@ -11,17 +11,19 @@ const Food = ({ closeChange }) => {
     closeChange?.remove("change");
 
     const user = getUser()?.result;
+  
     const [isVisible, setIsVisible] = useState(false);
+    const [readMore, setReadMore] = useState(false);
     const [isLoading, setIsLoading] = useState(true);
     const [isEdit, setIsEdit] = useState(false);
     const [currentId, setCurrentId] = useState("");
     const [allMeals, setAllMeals] = useState([]);
     const [readMoreCard, setReadMoreCard] = useState("");
-  
     
     const cards = allMeals.map((el) => {
-        return <Card el={el} key={el._id} setAllMeals={setAllMeals} setIsEdit={setIsEdit} setIsVisible={setIsVisible} setCurrentId={setCurrentId} allMeals={allMeals} setReadMoreCard={setReadMoreCard} />
-    })
+        return <Card el={el} key={el._id} setAllMeals={setAllMeals} setIsEdit={setIsEdit} setIsVisible={setIsVisible} setCurrentId={setCurrentId} allMeals={allMeals} setReadMoreCard={setReadMoreCard} readMoreCard={readMoreCard} setReadMore={setReadMore} />
+    });
+    
     useEffect(() => {
         const res = fetchAll().then((value) => {
             setAllMeals(value.data.result);
@@ -33,7 +35,7 @@ const Food = ({ closeChange }) => {
     if (isLoading) return <h1 className={styles.loading}>Loading Ucitavanje</h1>
     return (
         <div className={styles.container}>
-            {/* <SeeAll readMoreCard={readMoreCard}/> */}
+            {readMore && <SeeAll readMoreCard={readMoreCard} setReadMore={setReadMore} setAllMeals={setAllMeals} allMeals={allMeals} setReadMoreCard={setReadMoreCard} />}
             {isVisible && <NewMeal setIsVisible={setIsVisible} setIsEdit={setIsEdit} isEdit={isEdit} currentId={currentId} setCurrentId={setCurrentId} allMeals={allMeals} setAllMeals={setAllMeals} />}
             {user?.admin &&
                 <div className={styles.createNewBtn} onClick={() => { setIsVisible(true) }}>
