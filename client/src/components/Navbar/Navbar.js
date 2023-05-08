@@ -1,10 +1,12 @@
 import styles from "./css/navbar.module.css";
 import { useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { getUser, logout } from "../Login/JS/login.js"
+import { getUser, logout } from "../Login/JS/login.js";
+import { GrCart } from "react-icons/gr";
+
 import "./css/nav.css";
 
-const Navbar = ({ setCloseChange, loggedUser, setLoggedUser,setUser }) => {
+const Navbar = ({ setCloseChange, loggedUser, setLoggedUser, setUser, addToCart }) => {
 
     let user = getUser();
     const navigate = useNavigate();
@@ -15,7 +17,7 @@ const Navbar = ({ setCloseChange, loggedUser, setLoggedUser,setUser }) => {
         setUser(null);
         navigate("/")
     }
-    
+
 
     const closeBtn = (e) => {
         e.currentTarget.classList.toggle("change");
@@ -26,17 +28,27 @@ const Navbar = ({ setCloseChange, loggedUser, setLoggedUser,setUser }) => {
             navigate(-1)
         }
     }
-useEffect(()=>{
-    setLoggedUser(user);
-},[])
+
+    const handleOrder = (e) => {
+       user? navigate("/order") : alert("You Have To Login First")
+    }
+    useEffect(() => {
+        setLoggedUser(user);
+    }, [])
     return (
         <nav className={styles.navbarContainer}>
             <Link to="/" className={styles.logo}>Rimac</Link>
             <div className={styles.right}>
-                {user?<div className={styles.login} onClick={handleLogout}>
-                   <span className={styles.logoUser}>{user.result.firstName.split("")[0]}</span>
-                    <span className={styles.logoutSpan}>Logout</span></div> : <Link to="/login" className={styles.login}>Login/Register</Link> }
-                
+                {user ?
+                    <div className={styles.login} >
+                        <span className={styles.logoUser}>{user.result.firstName.split("")[0]}</span>
+                        <span className={styles.logoutSpan} onClick={handleLogout}>Logout</span>
+                        <div className={styles.cartWrapp} onClick={handleOrder}>
+                            <div className={styles.countAdd}>{addToCart.length}</div>
+                            <GrCart className={styles.cartIcon} />
+                        </div>
+                    </div> : <Link to="/login" className={styles.login}>Login/Register</Link>}
+
                 <div className={styles.navBtn} onClick={(e) => { closeBtn(e) }}>
                     <div className={`${styles.line} line_1`}></div>
                     <div className={`${styles.line} line_2`}></div>

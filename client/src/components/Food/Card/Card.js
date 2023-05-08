@@ -1,23 +1,24 @@
 import styles from './css/card.module.css';
 import { BiHeart } from "react-icons/bi";
 import { AiFillHeart } from "react-icons/ai";
-import { likeMeal, deleteMeal } from "../../../api/index";
+import { likeMeal, deleteMeal, cart } from "../../../api/index";
 import { getUser } from "../../Login/JS/login";
 import { GrCart } from "react-icons/gr";
 import Comments from "./Comments/Comments";
 import { useState, useRef, useEffect } from 'react';
 import { commentMeal } from "../../../api/index";
-import { useNavigate } from "react-router-dom";
 
-const Card = ({ el, setAllMeals, setIsEdit, setIsVisible, setCurrentId, allMeals, setReadMoreCard,readMoreCard,setReadMore }) => {
+
+const Card = ({ el, setAllMeals, setIsEdit, setIsVisible, setCurrentId, allMeals,
+     setReadMoreCard,readMoreCard,setReadMore,setAddToCart,count,setCount }) => {
     const user = getUser()?.result;
 
     // setReadMoreCard(el);
-    const navigate = useNavigate();
+    
     const commRef = useRef(null);
     const [comment, setComment] = useState("");
     const [comments, setComments] = useState(el.comments);
-    
+   
     const [comments_X, setComments_X] = useState(true);
     
     const handleDelete = async () => {
@@ -60,17 +61,24 @@ const Card = ({ el, setAllMeals, setIsEdit, setIsVisible, setCurrentId, allMeals
             setComments_X(!comments_X);
             comments_X? commRef.current.style.display = 'block' : commRef.current.style.display = 'none';  
         }
-        const handleOrder = ()=>{
-            user? navigate("/order") : alert("You Have To Login First")
-            
+        const addToCart = async ()=>{
+            if(!user) alert("You Have To Login First");
+            // let time = new Date()
+            // console.log(time);
+            const { data } = await cart({title: el.title, mealId: el._id, user: user._id, img: el.img, col: count, price:el.price, op: "plus" });
+            setAddToCart(data.cart);   
         }
 
+        const handleSeeAll = () => {
+            setReadMoreCard(el); 
+            setReadMore(true);  
+        }
         // useEffect(()=>{
         //     setComments([...el.comments])
         // },[readMoreCard])
     return (
         <div className={styles.card}>
-            <div className={styles.imgWrapp} onClick={() =>{setReadMoreCard(el); setReadMore(true) }}>
+            <div className={styles.imgWrapp} onClick={handleSeeAll}>
                 <img src={el.img} className={styles.img} alt="pasta" />
             </div>
             <div className={styles.time}>
@@ -89,7 +97,7 @@ const Card = ({ el, setAllMeals, setIsEdit, setIsVisible, setCurrentId, allMeals
                 }} onKeyDown={handleComment} value={comment} onFocus={handleFocus} onBlur={handleBlur} ></textarea>
                 <div className={styles.comOrdBtn}>
                     <button className={styles.commentsBtn} onClick={handleComm}>Comments</button>
-                    <button className={styles.orderBtn} onClick={handleOrder}>Order <GrCart /> <span className={styles.price}>{el.price}$</span> </button>
+                    <button className={styles.orderBtn} onClick={addToCart}>Add To <GrCart /> <span className={styles.price}>{el.price}$</span> </button>
                 </div>
 
             </div>
@@ -97,7 +105,7 @@ const Card = ({ el, setAllMeals, setIsEdit, setIsVisible, setCurrentId, allMeals
                 <h4 className={styles.title}>{el.title}</h4>
                 <div className={styles.line}></div>
                 <p className={styles.recipe}>{el.recipe.substr(0, 150)}...</p>
-                <button className={styles.seeBtn} onClick={()=>{setReadMoreCard(el); setReadMore(true)}}>See all</button>
+                <button className={styles.seeBtn} onClick={handleSeeAll}>See all</button>
 
             </div>
             {user?.admin &&

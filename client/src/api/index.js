@@ -17,3 +17,8 @@ export const commentMeal = (id, comment)=>{return API.post(`meals/comments`, {id
 
 export const signUp = (newUser)=>{return API.post("/user/newUser", newUser)};
 export const signIn = (newUser)=>{return API.post("/user/signIn", newUser)};
+export const cart = (forCart)=>{return API.post("/user/cart", forCart)};
+export const getFromCart_1 = (userId)=>{return API.get(`/user/${userId}`)};
+export const delFromCart = (userId, mealId)=>{return API.post("/user/del", {userId, mealId})};
+
+

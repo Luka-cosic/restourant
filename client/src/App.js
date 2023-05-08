@@ -14,7 +14,9 @@ function App(){
   const [closeChange, setCloseChange] = useState()
   const [loggedUser, setLoggedUser] = useState(null);
   const [user, setUser] = useState(getUser()?.result);
+  const [addToCart, setAddToCart] = useState([])
   let location = useLocation();
+  
   
   useEffect(()=>{
     setUser(getUser()?.result)
@@ -22,14 +24,14 @@ function App(){
   
   return(
     <>
-    <Navbar setCloseChange={setCloseChange} loggedUser={loggedUser} setLoggedUser={setLoggedUser} setUser={setUser} />
+    <Navbar setCloseChange={setCloseChange} loggedUser={loggedUser} setLoggedUser={setLoggedUser} setUser={setUser} addToCart={addToCart} />
     <Routes>
       <Route path="/" element={<Home closeChange={closeChange} />} />
       <Route path="/floatMenu" element={<FloatMenu />} />
       <Route path="/aboutUs" element={<AboutUs closeChange={closeChange}  />} />
-      <Route path="/food" element={<Food closeChange={closeChange} />} />
+      <Route path="/food" element={<Food closeChange={closeChange} setAddToCart={setAddToCart} />} />
       <Route path="/login" element={<Login closeChange={closeChange} setLoggedUser={setLoggedUser} />} />
-      <Route path="/order" element={user?  <Order closeChange={closeChange} /> :  <Navigate to="/" replace={true} />} />
+      <Route path="/order" element={user?  <Order closeChange={closeChange} addToCart={addToCart} setAddToCart={setAddToCart} /> :  <Navigate to="/" replace={true} />} />
 
     </Routes>
     </>
