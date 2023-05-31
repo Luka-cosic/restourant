@@ -62,6 +62,7 @@ const Card = ({ el, setAllMeals, setIsEdit, setIsVisible, setCurrentId, allMeals
             comments_X? commRef.current.style.display = 'block' : commRef.current.style.display = 'none';  
         }
         const addToCart = async ()=>{
+           
             if(!user) alert("You Have To Login First");
             // let time = new Date()
             // console.log(time);

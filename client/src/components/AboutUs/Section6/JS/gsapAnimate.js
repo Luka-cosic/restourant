@@ -23,8 +23,7 @@ export const gsapAnimate = (sec4Ref,leftSide,rightSide)=>{
             trigger: leftSide.current,
             start: "top center",
             end: "center center",
-            scrub: 1
-            
+            scrub: 1 
         },
         right: "50%",
         x: "50%"

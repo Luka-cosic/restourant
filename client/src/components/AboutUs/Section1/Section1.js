@@ -1,4 +1,4 @@
-import styles from './css/aboutUs.module.css';
+import styles from './css/section1.module.css';
 
 const Section1 = ()=>{
     return(

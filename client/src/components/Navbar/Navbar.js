@@ -1,8 +1,9 @@
 import styles from "./css/navbar.module.css";
 import { useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { getUser, logout } from "../Login/JS/login.js";
+import { Link, useNavigate, useLocation } from "react-router-dom";
+import { getUser, logout, } from "../Login/JS/login.js";
 import { GrCart } from "react-icons/gr";
+import { BsArrowLeft } from "react-icons/bs";
 
 import "./css/nav.css";
 
@@ -10,7 +11,8 @@ const Navbar = ({ setCloseChange, loggedUser, setLoggedUser, setUser, addToCart 
 
     let user = getUser();
     const navigate = useNavigate();
-
+    const location = useLocation();
+    
     const handleLogout = () => {
         logout();
         setLoggedUser(null);
@@ -37,7 +39,10 @@ const Navbar = ({ setCloseChange, loggedUser, setLoggedUser, setUser, addToCart 
     }, [])
     return (
         <nav className={styles.navbarContainer}>
-            <Link to="/" className={styles.logo}>Rimac</Link>
+            {location.pathname === '/order'?
+            <Link to="/food" className={styles.logo}><BsArrowLeft className={styles.arrow} /></Link> :
+            <Link to="/" className={styles.logo}>Rimac</Link>}
+            
             <div className={styles.right}>
                 {user ?
                     <div className={styles.login} >

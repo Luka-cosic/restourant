@@ -134,6 +134,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     box-shadow: 0.1rem 0.1rem 0.2rem;
 }
 .priceWrapp{
@@ -147,9 +148,10 @@
     width: 3.5rem;
     display: flex;
     justify-content: space-between;
-    font-size: 2rem;
+    font-size: 3rem;
     color: #fff;
     text-shadow: 0.1rem 0.1rem 0.1rem black;
+    margin-bottom: 1rem;
 }
 .plusMinus{
     width: 8rem;

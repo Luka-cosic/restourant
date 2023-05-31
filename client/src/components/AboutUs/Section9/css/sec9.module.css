@@ -1,0 +1,38 @@
+.container{
+    width: 100vw;
+    height: 100vh;
+    background-color:black;
+    display: flex;
+    /* align-items: center; */
+    justify-content: center;
+}
+.imgHolder{
+    width: 70%;
+    height: 100%;
+    /* background-color: blue; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.screenWrapper{
+    width: 100%;
+    height: 70%;
+    display: flex;
+    justify-content: center;
+    transform: rotateX(80deg);
+    transform-origin: bottom;
+    transition: all 1s;
+}
+.map{
+    width: 100%;
+    height: 100%;
+}
+.screenImg{
+    width: 90%;
+    height: 100%;
+}
+
+.tableWrapper{
+    width: 100%;
+}

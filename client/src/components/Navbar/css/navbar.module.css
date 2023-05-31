@@ -10,7 +10,9 @@
     align-items: center;
     justify-content: space-between;
 }
-
+.arrow{
+    font-size: 5rem;
+}
 .logo{
     font-size: 2rem;
     color: #fff;

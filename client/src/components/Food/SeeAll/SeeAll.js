@@ -21,17 +21,17 @@ const SeeAll = ({ readMoreCard, setReadMoreCard, setReadMore, setAllMeals, allMe
     const [comment, setComment] = useState("");
     const [comments, setComments] = useState(readMoreCard.comments);
 
-    const handlePlus = () => {
-        setPrice((prev) => prev + newPrice);
-        setCount((prev) => prev + 1);
-    }
+    // const handlePlus = () => {
+    //     setPrice((prev) => prev + newPrice);
+    //     setCount((prev) => prev + 1);
+    // }
 
-    const handleMinus = () => {
-        if (count > 1) {
-            setPrice((prev) => prev - newPrice);
-            setCount((prev) => prev - 1);
-        }
-    }
+    // const handleMinus = () => {
+    //     if (count > 1) {
+    //         setPrice((prev) => prev - newPrice);
+    //         setCount((prev) => prev - 1);
+    //     }
+    // }
 
     const handleLike = async () => {
         if (user) {
@@ -65,7 +65,7 @@ const SeeAll = ({ readMoreCard, setReadMoreCard, setReadMore, setAllMeals, allMe
     useEffect(() => {
         commentsRef?.current?.scrollIntoView({ behavior: "smooth" });
         containerRef.current.style.transform = "translateZ(0)"
-        
+
     }, [comments]);
     return (
         <div className={styles.wrapper}>
@@ -98,14 +98,15 @@ const SeeAll = ({ readMoreCard, setReadMoreCard, setReadMore, setAllMeals, allMe
                         <input type="text" className={styles.input} onKeyDown={handleComment} onChange={(e) => { setComment(e.target.value) }} value={comment} placeholder="Comment Meal" />
                         <div className={styles.messages}>{allComments}</div>
                         <div className={styles.priceOffer}>
-                            <div className={styles.priceWrapp}>
-                                <div className={styles.price}>{price}<span>$</span> </div>
+                            <div className={styles.price}>{price}<span>$</span> </div>
+                            {/* <div className={styles.priceWrapp}>
+                                
                                 <div className={styles.plusMinus}>
                                     <div className={styles.plus} onClick={handlePlus}>+</div>
                                     <div className={styles.incDec}>{count}</div>
                                     <div className={styles.minus} onClick={handleMinus}>-</div>
                                 </div>
-                            </div>
+                            </div> */}
                             <button className={styles.orderBtn} onClick={() => { navigate("/order") }}>Add To Card</button>
                         </div>
 

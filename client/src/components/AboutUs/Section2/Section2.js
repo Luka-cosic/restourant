@@ -1,12 +1,12 @@
 import styles from "./css/section2.module.css";
-import { useRef, useEffect  } from "react";
+import { useRef, useEffect, useLayoutEffect  } from "react";
 import { addClass } from "./JS/sec2.js";
 import "./css/sec2.css";
 
 const Section2 = () => {
     const sec2Ref = useRef(null);
     const handleScroll = (e)=>{ addClass(e, sec2Ref) };
-    useEffect(() => {
+    useLayoutEffect (() => {
         window.addEventListener("scroll", handleScroll)
     },[]);
 

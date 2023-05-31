@@ -1,40 +1,54 @@
 .orderedCard {
     width: 100%;
     height: 10rem;
-    background-color: #e6ffe6;
+    /* background-color: #e6ffe6; */
     margin-bottom: 2rem;
-    border-bottom-right-radius: 5rem 10rem; 
     display: flex;
-    align-items: flex-end;
-    column-gap: 20px;
+    align-items: center;
     justify-content: space-evenly;
     position: relative;
-}
-
-.title {
-    font-size: 2rem;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    top: 2rem;
-    color:#004d00;
+    border-radius: 1rem;
+    box-shadow: 0.1rem 0.1rem 0.3rem black;
 }
 
 .imgWrapp {
     height: 10rem;
     width: 10rem;
     background-image: linear-gradient(#004d00, #008000);
-    padding: 0.5rem;
+    padding: 0.3rem;
     position: absolute;
-    left: 0;
-    
-}
+    left: 0;  
+    border-radius: 1rem;
 
+}
 .img {
-    height: 9rem;
-    width: 9rem;
+    height: 100%;
+    width: 100%;
     object-fit: cover;
-    border-top-left-radius: 2rem 10rem; 
+    border-radius: 1rem;
+
+}
+.priceWrapp{
+    width: 30rem;
+    height: 100%;
+    /* background-color: #994d00; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    border-radius: 1rem;
+    box-shadow: 0.1rem 0.1rem 0.4rem black;
+    /* color: white; */
+}
+.title {
+    font-size: 3rem;
+    color:#004d00;
+}
+.priceCol{
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    /* background-color: blue; */
 }
 .price{
     font-size: 2.5rem;
@@ -45,13 +59,30 @@
 
 }
 .plus{
+    position: absolute;
     font-size: 3rem;
     margin-left: 6rem;
     cursor: pointer;
-    color: #994d00;
+    /* color: #994d00; */
+    left: 5rem;
+}
+.minus{
+    position: absolute;
+    font-size: 3rem;
+    margin-left: 6rem;
+    cursor: pointer;
+    /* color: #994d00; */
+    right: 2rem;
 }
 .delete{
     position: absolute;
     right: 0;
+    top: 0;
     cursor: pointer;
+    padding: 0.2rem;
+    background-color: #cc0000;
+    border: none;
+    color: white;
+    box-shadow: 0.1rem 0.1rem 0.1rem #cc0000;
+    /* border-radius: 1rem; */
 }
