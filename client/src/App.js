@@ -6,6 +6,7 @@ import FloatMenu from "./components/FloatMenu/FloatMenu";
 import Food from "./components/Food/Food";
 import Login from "./components/Login/Login";
 import Order from "./components/Order/Order";
+import Photos from "./components/Photos/Photos";
 import { getUser } from "./components/Login/JS/login"
 
 import { useState, useEffect } from "react";
@@ -32,7 +33,7 @@ function App(){
       <Route path="/food" element={<Food closeChange={closeChange} setAddToCart={setAddToCart} />} />
       <Route path="/login" element={<Login closeChange={closeChange} setLoggedUser={setLoggedUser} />} />
       <Route path="/order" element={user?  <Order closeChange={closeChange} addToCart={addToCart} setAddToCart={setAddToCart} /> :  <Navigate to="/" replace={true} />} />
-
+      <Route path="/photos" element = { <Photos closeChange={closeChange}  /> } />
     </Routes>
     </>
   )

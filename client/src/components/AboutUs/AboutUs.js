@@ -7,6 +7,7 @@ import Section6 from "./Section6/Section6.js";
 import Section7 from "./Section7/Section7.js";
 import Section8 from "./Section8/Section8.js";
 import Section9 from "./Section9/Section9.js";
+import Footer from "./Footer/Footer.js";
 
 
 import styles from "./css/aboutUs.module.css";
@@ -27,7 +28,7 @@ const AboutUs = ({ closeChange }) => {
             <Section7 />
             <Section8 />
             <Section9 />
-
+            <Footer />
 
             {/* <Section3 /> */}
         </div>

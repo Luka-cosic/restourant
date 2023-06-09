@@ -5,6 +5,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-color: black;
 }
 .heading{
     font-size: 3.5rem;
@@ -14,6 +15,8 @@
     opacity: 0;
     transition: 0.5s;
     font-family: 'Raleway', sans-serif;
+    color: #fff;
+    text-shadow: 0.2rem 0.2rem 0.2rem rgb(14, 209, 248);
 }
 
 .text{
@@ -24,6 +27,8 @@
     opacity: 0;
     transition: 0.5s 0.5s;
     font-family: 'Raleway', sans-serif;
+    color: white;
+
 }
 .btnWrapp{
     position: relative;

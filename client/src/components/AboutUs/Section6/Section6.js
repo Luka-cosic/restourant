@@ -13,7 +13,7 @@ const Section6 = ()=>{
 
     useEffect(()=>{
         
-        gsapAnimate(sec6Ref,leftSide, rightSide); 
+        // gsapAnimate(sec6Ref,leftSide, rightSide); 
     },[]);
 
     return(

@@ -64,15 +64,16 @@ end Of HEADER */
     height: 45%;
     transform: translateZ(-300rem);
     transition: 0.5s;
-    box-shadow: 0.5rem 0.5rem 0.5rem #000;
+    box-shadow: 0.5rem 0.5rem 0.5rem rgb(14, 209, 248);
   }
   .sec1_header{
     position: absolute;
+    color: #fff;
   }
 /* Section 2 */
 
   .second {
-    background-color: lightblue;
+    background-color: #000;
   }
 .img{
   border-radius: 0.5rem;

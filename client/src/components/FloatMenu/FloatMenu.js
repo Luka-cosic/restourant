@@ -12,7 +12,7 @@ const FloatMenu = ()=>{
         <div className={styles.container} ref={cont} onMouseOut={handleMouseOut}>
             <Link to="/aboutUs" id="slika1" className={styles.link} onMouseOver={handleHover}> <span className={styles.numbers}>01</span><h1 className="headMenu">ABOUT US</h1> </Link>
             <Link to="/food" id="slika2" onMouseOver={handleHover} onMouseOut={handleMouseOut} className={styles.link}><span className={styles.numbers}>02</span> <h1 className="headMenu">FOOD</h1> </Link>
-            <Link to="/" id="slika4" onMouseOver={handleHover} onMouseOut={handleMouseOut} className={styles.link}><span className={styles.numbers}>03</span> <h1 className="headMenu">MENU 2</h1> </Link>
+            <Link to="/photos" id="slika4" onMouseOver={handleHover} onMouseOut={handleMouseOut} className={styles.link}><span className={styles.numbers}>03</span> <h1 className="headMenu">PHOTOS</h1> </Link>
             <Link to="/" id="slika5" onMouseOver={handleHover} onMouseOut={handleMouseOut} className={styles.link}><span className={styles.numbers}>04</span> <h1 className="headMenu">MENU 3</h1> </Link>
 
         </div>

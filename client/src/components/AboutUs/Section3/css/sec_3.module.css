@@ -1,7 +1,7 @@
 .section3{
     width: 100vw;
     height: 80vh;
-    /* background-color: brown; */
+    background-color: #000;
     display: flex;
     justify-content: center;
     align-items: center;

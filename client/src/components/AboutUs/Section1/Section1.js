@@ -8,7 +8,7 @@ const Section1 = ()=>{
                 <div className={styles.videoWrapper}>
                 
                     <div className={styles.video}>
-                        <video autoPlay muted >
+                        <video autoPlay muted loop >
                             <source src="../../../videos/aboutUs.mp4" type="video/mp4" />
                         </video>
                     </div>

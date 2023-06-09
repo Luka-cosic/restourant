@@ -1,0 +1,163 @@
+.container{
+    width: 100vw;
+    height: 100vw;
+    background-color: #000;
+}
+.imgHolder{
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+    column-gap: 1rem;
+    row-gap: 1rem;
+    padding-top: 10rem;
+}
+.item1{
+    grid-column: 1 /  3;
+    grid-row: 1 / 3;
+    cursor: pointer;
+    overflow: hidden;
+}
+.item2{
+    grid-column: 3 /  4;
+    grid-row: 1 / 2;
+    
+    cursor: pointer;
+    overflow: hidden;
+}
+.item3{
+    grid-column: 4 /  5;
+    grid-row: 1 / 2;
+    
+    cursor: pointer;
+    overflow: hidden;
+}
+.item4{
+    grid-column: 5 /  6;
+    grid-row: 1 / 2;
+    
+    cursor: pointer;
+    overflow: hidden;
+}
+.item5{
+    grid-column: 3 /  4;
+    grid-row: 2 / 3;
+    
+    cursor: pointer;
+    overflow: hidden;
+}
+.item6{
+    grid-column: 4 /  5;
+    grid-row: 2 / 3;
+    
+    cursor: pointer;
+    overflow: hidden;
+}
+.item7{
+    grid-column: 5 /  6;
+    grid-row: 2 / 3;
+    cursor: pointer;
+    overflow: hidden;
+}
+.item8{
+    grid-column: 1 /  2;
+    grid-row: 3 / 4;
+    cursor: pointer;
+    overflow: hidden;
+}
+.item9{
+    grid-column: 2 /  3;
+    grid-row: 3 / 4;
+    cursor: pointer;
+    overflow: hidden;
+}
+.item10{
+    grid-column: 3 /  5;
+    grid-row: 3 / 5;
+    cursor: pointer;
+    overflow: hidden;
+}
+.item11{
+    grid-column: 5 /  6;
+    grid-row: 3 / 4;
+    cursor: pointer;
+    overflow: hidden;
+}
+.item12{
+    grid-column: 1 /  2;
+    grid-row: 4 / 5;
+    cursor: pointer;
+    overflow: hidden;
+}
+.item13{
+    grid-column: 2 /  3;
+    grid-row: 4 / 5;
+    
+    cursor: pointer;
+    overflow: hidden;
+}
+.item14{
+    grid-column: 5 /  6;
+    grid-row: 4 / 5;
+    cursor: pointer;
+    overflow: hidden;
+}
+.item15{
+    grid-column: 1 /  3;
+    grid-row: 5 / 7;
+    cursor: pointer;
+    overflow: hidden;
+}
+.item16{
+    grid-column: 3 /  4;
+    grid-row: 5 / 6;
+    
+    cursor: pointer;
+    overflow: hidden;
+}
+.item17{
+    grid-column: 4 /  5;
+    grid-row: 5 / 6;
+    
+    cursor: pointer;
+    overflow: hidden;
+}
+.item18{
+    grid-column: 5 /  6;
+    grid-row: 5 / 6;
+    cursor: pointer;
+    overflow: hidden;
+}
+.item19{
+    grid-column: 4 /  5;
+    grid-row: 6 / 7;
+    cursor: pointer;
+    overflow: hidden;
+}
+.item20{
+    grid-column: 5 /  6;
+    grid-row: 6 / 7;
+    cursor: pointer;
+    overflow: hidden;
+}
+.item21{
+    grid-column: 3 /  4;
+    grid-row: 6 / 7;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.img{
+    transition: all 0.5s;
+    /* object-fit: cover; */
+}
+.img:hover{
+    transform: scale(1.2);
+    transition: all 0.5s;
+}
+
+/* Mosule */
+
+
+/*End Of Mosule */
