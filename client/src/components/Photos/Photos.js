@@ -7,18 +7,19 @@ const Photos = ({closeChange})=>{
     
     const [moduleX, setModuleX] = useState(false);
     const itemRef = useRef(null);
-    const [ img, setImg ] = useState();
+    const [ getSrc, setGetSrc ] = useState(1);
 
     const openModule = (e)=>{
         // moduleRef.current.style.display = "block";
         setModuleX(true);
-        console.log(e.target.getAttribute("src"));
-        setImg(e.target.getAttribute("src"))
+        console.log();
+        
+        setGetSrc(e.target.getAttribute("src").split("")[20])
     }
     
     return(
         <div className={styles.container}>
-            { moduleX && <Module setModuleX={setModuleX} img={img} /> }
+            { moduleX && <Module setModuleX={setModuleX} getSrc={getSrc} setGetSrc={setGetSrc} /> }
             <div className={styles.imgHolder}>
                 <div className={styles.item1} onClick={ openModule } ref={itemRef}>
                     <img className={styles.img} src="/images/photos/slika1.jpg" alt="" />

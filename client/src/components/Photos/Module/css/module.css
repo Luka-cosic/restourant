@@ -1,0 +1,22 @@
+.moveLeft{
+    animation-name: example;
+    animation-duration: 0.6s;
+}
+.moveRight{
+    animation-name: example1;
+    animation-duration: 0.6s; 
+}
+@keyframes example {
+    0% {transform: translateX(0); opacity: 1}
+    50% {transform: translateX(-50rem); opacity: 0}
+    60% {transform: translateX(50rem); opacity: 0};
+    80% {transform: translateX(50rem); opacity: 1};
+
+  }
+  @keyframes example1 {
+    0% {transform: translateX(0); opacity: 1}
+    50% {transform: translateX(50rem); opacity: 0}
+    60% {transform: translateX(-50rem); opacity: 0};
+    80% {transform: translateX(-50rem); opacity: 1};
+
+  }
