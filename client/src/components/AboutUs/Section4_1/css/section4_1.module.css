@@ -1,0 +1,34 @@
+.contsiner{
+    width: 100vw;
+    height: 210vh;
+    /* background: url("/public/images/aboutUs/restaurant.jpg"); */
+}
+.wrapper{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+.imgWrapp{
+    position: relative;
+    width: 100%;
+    height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content:center;
+    overflow: hidden;
+    z-index: 1;
+}
+.imgHolder{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 200%;
+}
+.img{
+    width: 100%;
+    height: 100%;
+    /* transform: translateY(-30%) */
+}

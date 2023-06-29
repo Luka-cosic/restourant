@@ -21,27 +21,27 @@ const Section4 = ()=>{
     const rightSide = useRef(null);
     const imagesRef = useRef(null);
     
-    useLayoutEffect(() => {
-        let ctx = gsap.context((self) => {
-            gsap.timeline({
-                scrollTrigger: {
-                    trigger: sec5Ref.current,
-                    start: "-20% top",
-                    scrub: 1,
-                    pin: true,
-                    end: "6000px",
-                    markers: true
-                }
-            })
-                .to(imagesRef.current, {
-                    y: -1000
-                })
+    // useLayoutEffect(() => {
+    //     let ctx = gsap.context((self) => {
+    //         gsap.timeline({
+    //             scrollTrigger: {
+    //                 trigger: sec5Ref.current,
+    //                 start: "-20% top",
+    //                 scrub: 1,
+    //                 pin: true,
+    //                 end: "6000px",
+    //                 markers: true
+    //             }
+    //         })
+    //             .to(imagesRef.current, {
+    //                 y: -1000
+    //             })
 
-        }, sec5Ref);
+    //     }, sec5Ref);
 
-        return () => ctx.revert()
-        // gsapAnimate(sec4Ref,leftSide, rightSide); 
-    }, []);
+    //     return () => ctx.revert()
+    //     // gsapAnimate(sec4Ref,leftSide, rightSide); 
+    // }, []);
 
     return(
         <div className={`${styles.section5}`} ref={sec5Ref}>
@@ -52,7 +52,7 @@ const Section4 = ()=>{
                 <h1 className={styles.heading}>Kuhinja</h1>
                 <p className={styles.text}>Jelovnik predstavlja odabranu kombinaciju jela iz nacionalne i regionalne kuhinje, povezujući srpsku i bosansku, francusku i italijansku. Gastronomski užitak uz specijalitete sa grila, sača i veriga, upotpunjen je bogatim izborom salata, poslastica, sireva, kao i bogatom ponudom lokalnih i stranih vina iz Srbije, Hrvatske, Francuske, Italije i Čilea.</p> 
             </div>
-            <div className={styles.treci} ref={imagesRef}>
+            {/* <div className={styles.treci} ref={imagesRef}>
                 <div className={styles.proba}>
                     <img src={img1} alt="" />
                 </div>
@@ -89,7 +89,7 @@ const Section4 = ()=>{
 
                 </div>
 
-            </div>
+            </div> */}
         </div>
     )
 }

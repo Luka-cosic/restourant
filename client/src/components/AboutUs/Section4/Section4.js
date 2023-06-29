@@ -25,27 +25,27 @@ const Section4 = () => {
     const imagesRef = useRef(null);
 
 
-    useLayoutEffect(() => {
-        let ctx = gsap.context((self) => {
-            gsap.timeline({
-                scrollTrigger: {
-                    trigger: sec4Ref.current,
-                    start: "-20% top",
-                    scrub: 1,
-                    pin: true,
-                    end: "6000px",
-                    markers: true
-                }
-            })
-                .to(imagesRef.current, {
-                    y: -1000
-                })
+    // useLayoutEffect(() => {
+    //     let ctx = gsap.context((self) => {
+    //         gsap.timeline({
+    //             scrollTrigger: {
+    //                 trigger: sec4Ref.current,
+    //                 start: "-20% top",
+    //                 scrub: 1,
+    //                 pin: true,
+    //                 end: "6000px",
+    //                 markers: true
+    //             }
+    //         })
+    //             .to(imagesRef.current, {
+    //                 y: -1000
+    //             })
 
-        }, sec4Ref);
+    //     }, sec4Ref);
 
-        return () => ctx.revert()
-        // gsapAnimate(sec4Ref,leftSide, rightSide); 
-    }, []);
+    //     return () => ctx.revert()
+    //     // gsapAnimate(sec4Ref,leftSide, rightSide); 
+    // }, []);
 
     return (
         <div className={`${styles.section4}`} ref={sec4Ref}>
@@ -56,7 +56,7 @@ const Section4 = () => {
             <div className={`${styles.rightSide} rightSide`} ref={rightSide} >
                 <img src={img1} className={styles.img} alt="" />
             </div>
-            <div className={styles.treci} ref={imagesRef}>
+            {/* <div className={styles.treci} ref={imagesRef}>
                 <div className={styles.proba}>
                     <img src={img1} alt="" />
                 </div>
@@ -93,7 +93,7 @@ const Section4 = () => {
 
                 </div>
 
-            </div>
+            </div> */}
         </div>
     )
 }

@@ -8,6 +8,7 @@
    align-items: center;
    justify-content: center;
    perspective: 90rem;
+   z-index: 2;
 }
 .videoWrapper{
     position: absolute;

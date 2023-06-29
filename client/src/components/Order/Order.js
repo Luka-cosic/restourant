@@ -6,7 +6,6 @@ import { getFromCart_1 } from "../../api/index";
 
 const Order = ({closeChange, addToCart,setAddToCart})=>{
     closeChange?.remove("change");
-    // console.log(addToCart);
     
     let [isLoading, setIsLoading] = useState(false);
     let user = getUser();
