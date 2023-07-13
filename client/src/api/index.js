@@ -22,3 +22,4 @@ export const getFromCart_1 = (userId)=>{return API.get(`/user/${userId}`)};
 export const delFromCart = (userId, mealId)=>{return API.post("/user/del", {userId, mealId})};
 
 
+

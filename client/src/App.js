@@ -15,12 +15,13 @@ function App(){
   const [closeChange, setCloseChange] = useState()
   const [loggedUser, setLoggedUser] = useState(null);
   const [user, setUser] = useState(getUser()?.result);
-  const [addToCart, setAddToCart] = useState([])
+  const [addToCart, setAddToCart] = useState(getUser()?.result?.cart)
   let location = useLocation();
   
   
   useEffect(()=>{
     setUser(getUser()?.result)
+    setAddToCart(getUser()?.result?.cart)
   },[location]);
   
   return(

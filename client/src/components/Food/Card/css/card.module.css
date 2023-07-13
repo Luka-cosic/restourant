@@ -2,12 +2,10 @@
     position: relative;
     width: 48rem;
     height: 25rem;
-    /* background-color: blue; */
     display: flex;
     flex-direction: column;
     box-shadow: 0.1rem 0.1rem 0.3rem black;
     background: #fff;
-    /* padding: 1rem; */
     border-radius: 0.5rem;
     margin: 1rem 1rem;
 }
@@ -135,6 +133,7 @@
 .recipe{
     font-size: 1.4rem;
     margin-bottom: 0.8rem;
+    color: black;
 }
 .seeBtn{
     background-color: green;

@@ -1,10 +1,10 @@
 .container{
     width: 100vw;
-    height: 100vh;
     display: flex;
     justify-content: center;
     background: #f2f2f2;
-    
+    position: relative;
+    padding-bottom: 20rem;
 }
 .createNewBtn{
     width: 6rem;
@@ -29,17 +29,68 @@
 }
 .allMeals{
     width: 100%;
-    /* height: 100%; */
-    padding-top: 10rem;
-   
+    padding-top: 20rem;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     background: #f2f2f2;
-
+    gap: 2rem;
 }
 
-
+.searchButtons{
+    width: 40rem;
+    position: absolute;
+    display: flex;
+    justify-content: space-around;
+    /* background-color: red; */
+    top: 10rem;
+}
+.srcBtn{
+    font-size: 1.6rem;
+    padding: 0.2rem 0.3rem;
+    cursor: pointer;
+    /* color: #fff;
+    background-color: #000; */
+    letter-spacing: 0.1rem;
+}
 .loading{
     font-size: 10rem;
+}
+.paginationWrapp{
+    width: 40rem;
+    position: absolute;
+    bottom: 5rem;
+    /* background-color: red; */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+}
+.btns{
+    width: 30rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.arrow{
+    width: 5rem;
+    font-size: 5rem;
+    /* background-color: blue; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+.pagBtn{
+    width: 3rem;
+    height: 3rem;
+    font-size: 2rem;
+    /* background-color: green; */
+    border-radius: 50%;
+    border: 0.1rem solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0.3rem;
 }

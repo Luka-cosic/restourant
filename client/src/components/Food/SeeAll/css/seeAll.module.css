@@ -1,5 +1,5 @@
 .wrapper{
-    position: absolute;
+    position: fixed;
     width: 100vw;
     height: 100vh;
     z-index: 50;
@@ -196,7 +196,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: transparent;
+    
 }
 .title{
     font-size: 3rem;
@@ -206,7 +206,12 @@
 
 }
 .recipe{
+    width: 30rem;
     font-size: 1.5rem;
+    color: #000;
+    background-color: red;
+    text-align: center;
+     
 }
 
 /* Close Button */

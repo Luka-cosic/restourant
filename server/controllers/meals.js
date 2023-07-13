@@ -16,7 +16,7 @@ export const createMeal = async (req, res) => {
 export const fetchAll = async (req, res) => {
     try {
         let result = await Meals.find({});
-        res.status(201).json({ result })
+        res.status(201).json({ result: result, length: result.length})
     } catch (error) {
         res.status(404).json({ error: error.message })
     }

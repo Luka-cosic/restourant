@@ -46,7 +46,9 @@ export const cart = async (req, res) => {
         let id = req.body.user;
         let orderedMeal = req.body;
         let doc = await Users.findById(id);
-        // console.log(req.body.op);
+      
+        // doc.cart = [];
+        // doc.save();
         
         doc.cart.forEach((el, i) => {
       

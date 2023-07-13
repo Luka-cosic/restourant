@@ -9,30 +9,18 @@ import { commentMeal } from "../../../api/index";
 import { useNavigate } from "react-router-dom";
 
 
-const SeeAll = ({ readMoreCard, setReadMoreCard, setReadMore, setAllMeals, allMeals, count,
-    setCount, seeAllChange }) => {
+const SeeAll = ({ readMoreCard, setReadMoreCard, setReadMore, setAllMeals, allMeals }) => {
     const user = getUser()?.result;
-
+          
     const navigate = useNavigate();
     const commentsRef = useRef(null);
     const containerRef = useRef(null);
-    let newPrice = Number(readMoreCard.price)
+    // let newPrice = Number(readMoreCard.price)
     let [price, setPrice] = useState(Number(readMoreCard.price));
     const [comment, setComment] = useState("");
     const [comments, setComments] = useState(readMoreCard.comments);
 
-    // const handlePlus = () => {
-    //     setPrice((prev) => prev + newPrice);
-    //     setCount((prev) => prev + 1);
-    // }
-
-    // const handleMinus = () => {
-    //     if (count > 1) {
-    //         setPrice((prev) => prev - newPrice);
-    //         setCount((prev) => prev - 1);
-    //     }
-    // }
-
+    
     const handleLike = async () => {
         if (user) {
             const { data } = await likeMeal(readMoreCard._id, user);
@@ -115,7 +103,7 @@ const SeeAll = ({ readMoreCard, setReadMoreCard, setReadMore, setAllMeals, allMe
                     {/* Third Row */}
                     <div className={styles.thirdRow}>
                         <div className={styles.title}>{readMoreCard.title}</div>
-                        <div className={styles.recipe}>{readMoreCard.recipe}</div>
+                        <p className={styles.recipe}>{readMoreCard.recipe}</p>
                     </div>
 
                 </div>

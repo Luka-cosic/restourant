@@ -2,7 +2,7 @@ import styles from './css/card.module.css';
 import { BiHeart } from "react-icons/bi";
 import { AiFillHeart } from "react-icons/ai";
 import { likeMeal, deleteMeal, cart } from "../../../api/index";
-import { getUser } from "../../Login/JS/login";
+import { getUser, saveUser } from "../../Login/JS/login";
 import { GrCart } from "react-icons/gr";
 import Comments from "./Comments/Comments";
 import { useState, useRef, useEffect } from 'react';
@@ -66,7 +66,12 @@ const Card = ({ el, setAllMeals, setIsEdit, setIsVisible, setCurrentId, allMeals
             if(!user) alert("You Have To Login First");
             // let time = new Date()
             // console.log(time);
-            const { data } = await cart({title: el.title, mealId: el._id, user: user._id, img: el.img, col: count, price:el.price, op: "plus" });
+            const { data } = await cart({ user: user._id, title: el.title, mealId: el._id, img: el.img, col: count, price:el.price });
+    
+            let radi = getUser()
+            radi.result = data;
+            saveUser(radi)
+
             setAddToCart(data.cart);   
         }
 
@@ -105,7 +110,7 @@ const Card = ({ el, setAllMeals, setIsEdit, setIsVisible, setCurrentId, allMeals
             <div className={styles.titleWrapp}>
                 <h4 className={styles.title}>{el.title}</h4>
                 <div className={styles.line}></div>
-                <p className={styles.recipe}>{el.recipe.substr(0, 150)}...</p>
+                <p className={styles.recipe}>{el.recipe.substr(0, 130)}...</p>
                 <button className={styles.seeBtn} onClick={handleSeeAll}>See all</button>
 
             </div>

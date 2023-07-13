@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import styles from "./css/orderCard.module.css";
 import { AiFillPlusCircle, AiFillMinusCircle } from "react-icons/ai";
 import { cart, delFromCart } from "../../../api/index";
+import { getUser, saveUser } from "../../Login/JS/login.js";
 
 const OrderCard = ({ card, setAddToCart }) => {
 
@@ -29,7 +30,11 @@ const OrderCard = ({ card, setAddToCart }) => {
     
     const handleDel = async () => {
         let { data } = await delFromCart(card.user, card.mealId);
+        
         setAddToCart(data);
+        let radi = getUser();
+        radi.result.cart = data;
+        saveUser(radi)
     }
     useEffect(() => {
         

@@ -1,8 +1,8 @@
 import styles from "./css/newMeal.module.css";
 import { AiOutlineClose } from "react-icons/ai";
 import { useRef, useState, useEffect } from "react";
-import { base64 } from "./JS/base64.js";
-import { createMeal, editMeal } from "../../api/index.js";
+import { base64 } from "../JS/base64.js";
+import { createMeal, editMeal } from "../../../api/index.js";
 
 
 const NewMeal = ({ setIsVisible, setIsEdit, isEdit, currentId, setCurrentId, allMeals, setAllMeals }) => {

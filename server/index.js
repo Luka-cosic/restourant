@@ -21,8 +21,11 @@ app.get("/", (req, res) => {
     
   res.send("Hallo world")
 });
+
 app.use("/meals", mealRoutes)
 app.use("/user", userRoutes)
+
+
 
 
 mongoose.connect(url,{useNewUrlParser: true, useUnifiedTopology: true})

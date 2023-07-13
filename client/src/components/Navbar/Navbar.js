@@ -49,8 +49,8 @@ const Navbar = ({ setCloseChange, loggedUser, setLoggedUser, setUser, addToCart 
                         <span className={styles.logoUser}>{user.result.firstName.split("")[0]}</span>
                         <span className={styles.logoutSpan} onClick={handleLogout}>Logout</span>
                         <div className={styles.cartWrapp} onClick={handleOrder}>
-                            <div className={styles.countAdd}>{addToCart.length}</div>
-                            <GrCart className={styles.cartIcon} />
+                            <div className={styles.countAdd}>{addToCart?.length}</div>
+                            <GrCart className={styles.cartIconn} />
                         </div>
                     </div> : <Link to="/login" className={styles.login}>Login/Register</Link>}
 
