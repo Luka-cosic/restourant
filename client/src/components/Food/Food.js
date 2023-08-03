@@ -26,63 +26,73 @@ const Food = ({ closeChange, setAddToCart }) => {
     const [count, setCount] = useState(1);
     const pagWrap = useRef(null)
     const [pagin, setPagin] = useState(0);
+    const [all, setAll] = useState(true);
     const [k, setK] = useState(6);
     const [j, setJ] = useState(3);
     // const c = 3
 
-    const changeStyle = ()=>{
-        
+    const changeStyle = () => {
+
         let pagBtns = document.querySelectorAll(".pagBtn");
         let activePag = document.querySelectorAll(".activePag")[0];
-        Array.from(pagBtns).forEach((el)=>{
+        Array.from(pagBtns).forEach((el) => {
             el.classList.remove("activePag");
         })
-        if(activePag.nextElementSibling === null){
-          return  pagBtns[0].classList.add("activePag");
+        if (activePag.nextElementSibling === null) {
+            return pagBtns[0].classList.add("activePag");
         }
         activePag.nextElementSibling.classList.add("activePag");
-           
+
     }
-    // console.log(j,k);
+
 
     const handleRight = () => {
         let activePag = document.querySelectorAll(".activePag")[0];
 
         changeStyle();
-        setJ(j + 3);
-        setK(k + 3);
-        
-        console.log(pagWrap.current.lastChild === activePag);
-        console.log(j,k);
-        
-        if(pagWrap.current.lastChild === activePag){
+
+        let rez = copyAllMeals.filter((el, i) => {
+            return i >= j && i < k
+        });
+
+        console.log(pagWrap.current.lastChild.previousElementSibling === activePag);
+        console.log(j, k);
+        if (pagWrap.current.lastChild === activePag) {
             setJ(0);
             setK(3);
             setAllMeals(copyAllMeals);
-            return
+            // return
+        } else {
+            setJ(j + 3);
+            setK(k + 3);
         }
-      
-        let rez = copyAllMeals.filter((el, i) => {
-            return i >= j && i < k
-        })
-        setAllMeals(rez)
+        setAllMeals(rez);
 
     }
 
-    const cards = allMeals.map((el) => {
-        return <Card el={el} key={el._id} setAllMeals={setAllMeals} setIsEdit={setIsEdit} setIsVisible={setIsVisible} setCurrentId={setCurrentId}
-            allMeals={allMeals} setReadMoreCard={setReadMoreCard} readMoreCard={readMoreCard} setReadMore={setReadMore} setAddToCart={setAddToCart}
-            count={count} setCount={setCount} />
-    }).slice(0, 3)
+    if (all) {
+        var cards = allMeals.map((el) => {
+            return <Card el={el} key={el._id} setAllMeals={setAllMeals} setIsEdit={setIsEdit} setIsVisible={setIsVisible} setCurrentId={setCurrentId}
+                allMeals={allMeals} setReadMoreCard={setReadMoreCard} readMoreCard={readMoreCard} setReadMore={setReadMore} setAddToCart={setAddToCart}
+                count={count} setCount={setCount} />
+        }).slice(0, 3);
+    } else {
+        var cards = allMeals.map((el) => {
+            return <Card el={el} key={el._id} setAllMeals={setAllMeals} setIsEdit={setIsEdit} setIsVisible={setIsVisible} setCurrentId={setCurrentId}
+                allMeals={allMeals} setReadMoreCard={setReadMoreCard} readMoreCard={readMoreCard} setReadMore={setReadMore} setAddToCart={setAddToCart}
+                count={count} setCount={setCount} />
+        }).slice(0, copyAllMeals.length);
+    }
 
-    
-    
+
+
+
     // Pagin
     let arr = []
     const makePages = () => {
         const p = Math.ceil(pagin / 3);
         for (let i = 0; i < p; i++) {
-            arr.push(<div className={`${styles.pagBtn} pagBtn ${i === 0? "activePag" : ""}`} key={i} >{i + 1}</div>)
+            arr.push(<div className={`${styles.pagBtn} pagBtn ${i === 0 ? "activePag" : ""}`} key={i} >{i + 1}</div>)
         }
     }
     makePages()
@@ -91,10 +101,10 @@ const Food = ({ closeChange, setAddToCart }) => {
     //    end of pagin
 
     const handleSearch = (e) => {
+        setAll(false);
         let rez = copyAllMeals.filter((el) => {
             return el.type === e.target.innerText
         });
-
         setAllMeals(rez);
     }
 
@@ -124,25 +134,26 @@ const Food = ({ closeChange, setAddToCart }) => {
 
             <div className={styles.allMeals}>
                 <div className={styles.searchButtons}>
-                    <button className={styles.srcBtn} onClick={() => { setAllMeals(copyAllMeals) }}>All</button>
+                    <button className={styles.srcBtn} onClick={() => { setAllMeals(copyAllMeals); setAll(false) }}>All</button>
                     <button className={styles.srcBtn} onClick={handleSearch}>Pizza</button>
                     <button className={styles.srcBtn} onClick={handleSearch}>Pasta</button>
                     <button className={styles.srcBtn} onClick={handleSearch}>Sopu</button>
                     <button className={styles.srcBtn} onClick={handleSearch}>Pizza</button>
                 </div>
 
+
                 {cards}
 
             </div>
-            <div className={styles.paginationWrapp}>
-                <div className={styles.arrow} ><AiFillCaretLeft /> </div>
-                <div className={styles.btns} ref={pagWrap}>
+            { all &&
+                <div className={styles.paginationWrapp}>
+                    <div className={styles.arrow} ><AiFillCaretLeft /> </div>
+                    <div className={styles.btns} ref={pagWrap}>
+                        {arr}
+                    </div>
+                    <div className={styles.arrow} onClick={handleRight}><AiFillCaretRight /></div>
+                </div>}
 
-                    {arr}
-
-                </div>
-                <div className={styles.arrow} onClick={handleRight}><AiFillCaretRight /></div>
-            </div>
         </div>
 
     )
