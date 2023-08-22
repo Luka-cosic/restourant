@@ -5,6 +5,7 @@ import NewMeal from "./NewMeal/NewMeal";
 import SeeAll from "./SeeAll/SeeAll.js";
 import { useRef } from "react";
 import { fetchAll } from "../../api";
+import { pagBtnsStyle} from "./JS/makeStyle.js";
 import Card from "./Card/Card";
 import { AiFillCaretRight, AiFillCaretLeft } from "react-icons/ai";
 import "./css/food.css";
@@ -27,41 +28,29 @@ const Food = ({ closeChange, setAddToCart }) => {
     const pagWrap = useRef(null)
     const [pagin, setPagin] = useState(0);
     const [all, setAll] = useState(true);
-    const [k, setK] = useState(6);
-    const [j, setJ] = useState(3);
-    // const c = 3
+    const [k, setK] = useState(3);
+    const [j, setJ] = useState(0);
+    // const [n, setN] = useState(0);
+    // const [t, setT] = useState(3);
 
-    const changeStyle = () => {
-
-        let pagBtns = document.querySelectorAll(".pagBtn");
-        let activePag = document.querySelectorAll(".activePag")[0];
-        Array.from(pagBtns).forEach((el) => {
-            el.classList.remove("activePag");
-        })
-        if (activePag.nextElementSibling === null) {
-            return pagBtns[0].classList.add("activePag");
-        }
-        activePag.nextElementSibling.classList.add("activePag");
-
+    const changeStyle = (prop) => {
+        pagBtnsStyle(prop);
     }
-
+  
 
     const handleRight = () => {
         let activePag = document.querySelectorAll(".activePag")[0];
 
-        changeStyle();
+        changeStyle(false);
 
         let rez = copyAllMeals.filter((el, i) => {
             return i >= j && i < k
         });
+console.log(j,k);
 
-        console.log(pagWrap.current.lastChild.previousElementSibling === activePag);
-        console.log(j, k);
-        if (pagWrap.current.lastChild === activePag) {
+        if (pagWrap.current.lastChild.previousElementSibling === activePag) {
             setJ(0);
             setK(3);
-            setAllMeals(copyAllMeals);
-            // return
         } else {
             setJ(j + 3);
             setK(k + 3);
@@ -69,6 +58,33 @@ const Food = ({ closeChange, setAddToCart }) => {
         setAllMeals(rez);
 
     }
+    // const handleLeft = () => {
+        
+    //     let activePag = document.querySelectorAll(".activePag")[0];
+        
+    //     changeStyle(true);
+        
+        
+    //     let rez = copyAllMeals.filter((el, i) => {
+    //         return i >= j && i < k
+    //     });
+     
+        
+    //     if (pagWrap.current.firstChild === activePag) {
+    //         console.log("radi");
+            
+    //         setJ(Math.ceil(copyAllMeals.length / 3) * 3 - 3);
+    //         setK(Math.ceil(copyAllMeals.length / 3) * 3);
+    //         // setAllMeals(rez);
+    //         // return
+    //     } else {
+    //         setJ(j - 3);
+    //         setK(k - 3);
+    //     }
+    //     console.log(j,k,pagWrap.current.firstChild);
+    //     setAllMeals(rez);
+
+    // }
 
     if (all) {
         var cards = allMeals.map((el) => {
@@ -119,6 +135,10 @@ const Food = ({ closeChange, setAddToCart }) => {
         fetchAll_1()
 
     }, []);
+    // useEffect(() => {
+    //     handleLeft()
+
+    // }, [allMeals]);
 
     if (isLoading) return <h1 className={styles.loading}>Loading Ucitavanje</h1>
     return (
@@ -145,14 +165,15 @@ const Food = ({ closeChange, setAddToCart }) => {
                 {cards}
 
             </div>
-            { all &&
+            {all &&
                 <div className={styles.paginationWrapp}>
-                    <div className={styles.arrow} ><AiFillCaretLeft /> </div>
+                    <div className={styles.arrow} onClick={handleRight} ><AiFillCaretLeft /> </div>
                     <div className={styles.btns} ref={pagWrap}>
                         {arr}
                     </div>
                     <div className={styles.arrow} onClick={handleRight}><AiFillCaretRight /></div>
-                </div>}
+                </div>
+            }
 
         </div>
 
