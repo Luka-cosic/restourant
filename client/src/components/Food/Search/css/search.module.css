@@ -1,0 +1,17 @@
+.searchButtons{
+    width: 50rem;
+    position: absolute;
+    display: flex;
+    justify-content: space-around;
+    top: 10rem;
+}
+
+.srcBtn, .paginationBtn{
+    font-size: 1.6rem;
+    padding: 0.2rem 0.3rem;
+    cursor: pointer;
+    letter-spacing: 0.1rem;
+}
+.paginationBtn{
+    background-color: aqua;
+}

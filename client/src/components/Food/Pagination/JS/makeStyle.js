@@ -6,13 +6,7 @@ export const pagBtnsStyle = (prop)=>{
             el.classList.remove("activePag");
         });
        
-        if (activePag.nextElementSibling === null && !prop) {
-            return pagBtns[0].classList.add("activePag");
-        }
-        
-        if (activePag.previousElementSibling === null && prop ) {
-            return pagBtns[pagBtns.length -1].classList.add("activePag");
-        }
+       
         if(prop){
             activePag.previousElementSibling.classList.add("activePag");
         }else{

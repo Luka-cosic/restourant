@@ -1,0 +1,42 @@
+.paginationWrapp{
+    width: 40rem;
+    position: absolute;
+    bottom: 5rem;
+    /* background-color: red; */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+}
+.btns{
+    width: 30rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.arrowRight, .arrowLeft{
+    width: 5rem;
+    font-size: 5rem;
+    /* background-color: blue; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+.arrowLeft{
+    display: none;
+}
+
+.pagBtn{
+    width: 3rem;
+    height: 3rem;
+    font-size: 2rem;
+    /* background-color: green; */
+    border-radius: 50%;
+    border: 0.1rem solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0.3rem;
+}
