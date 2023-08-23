@@ -7,7 +7,7 @@ function Menu() {
             <h4 className="menuEnter" onClick={(e)=>{MakeSlider.firstImage()}}>ABOUT US</h4>
             <h4 className="menuEnter" onClick={(e)=>{MakeSlider.secondImage()}}>FOOD</h4>
             <h4 className="menuEnter" onClick={(e)=>{MakeSlider.thirdImage()}}>PHOTOS</h4>
-            <h4 className="menuEnter" onClick={(e)=>{MakeSlider.fourthImage()}}>MENU 4</h4>
+            <h4 className="menuEnter" onClick={(e)=>{MakeSlider.fourthImage()}}>BOOK</h4>
         </div>
     )
 }

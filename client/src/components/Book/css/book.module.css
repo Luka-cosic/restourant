@@ -1,0 +1,92 @@
+.container{
+    width: 100%;
+    height: 100%;
+    background: linear-gradient( black , red);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.wrapp{
+    width: 50%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+.heading{
+    font-size: 3rem;
+    position: absolute;
+    color: white;
+    left: -5rem;
+    top: -5rem;
+}
+.form{
+    display: flex;
+    justify-content: space-between;
+
+}
+.col1{
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.row1{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.inpHalf{
+    width: 48%;
+    height: 2.5rem;
+    border-radius: 0.5rem;
+    border: none;
+    padding-left: 0.5rem;
+
+}
+.input{
+    width: 100%;
+    height: 2.5rem;
+    border-radius: 0.5rem;
+    border: none;
+    padding-left: 0.5rem;
+}
+.textarea{
+    border-radius: 0.5rem;
+}
+.imgWrapper{
+    width: 60rem;
+    height: 30rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 4rem;
+}
+.imgHolder{
+    width: 100%;
+    height: 100%;
+    position: relative;
+
+}
+.img1, .img2{
+    position: absolute;
+}
+.img1{
+    display: none;
+}
+.btnWrapper{
+
+}
+.baseBtn1, .baseBtn2{
+    width: 15rem;
+    height: 4rem;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+.baseBtn2{
+    background-color: green;
+    margin-right: 4rem;
+}
+.baseBtn1{
+    background-color: #ff3333;
+}

@@ -31,7 +31,7 @@ function Templates() {
             </div>
 
             <div className="template_3 template change2">
-            <div className="aboutUsTextWrapp">
+                <div className="aboutUsTextWrapp">
                     <h1 className="aboutUsHeading">PHOTOS</h1>
                     <p className="aboutUsText">See recipes, like and comment on food with other visitors</p>
                     <div className="aboutUsBtnWrapp" onClick={() => { navigate("/photos") }}>
@@ -43,6 +43,14 @@ function Templates() {
             </div>
 
             <div className="template_4 template change3">
+            <div className="aboutUsTextWrapp">
+                    <h1 className="aboutUsHeading">BOOK</h1>
+                    <p className="aboutUsText">See recipes, like and comment on food with other visitors</p>
+                    <div className="aboutUsBtnWrapp" onClick={() => { navigate("/book") }}>
+                        <div className="btnEfect"></div>
+                        <button className="aboutUsBtn">EXPLORE</button>
+                    </div>
+                </div>
                 <img src="./images/slika5.jpg" className="tempImg" alt="" />
             </div>
 
