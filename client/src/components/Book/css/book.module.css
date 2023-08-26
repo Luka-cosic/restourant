@@ -22,7 +22,7 @@
 .form{
     display: flex;
     justify-content: space-between;
-
+    margin-bottom: 2rem;
 }
 .col1{
     width: 30%;
@@ -60,28 +60,98 @@
     justify-content: space-between;
     align-items: center;
     margin-bottom: 4rem;
+    /* background-color: aqua; */
 }
 .imgHolder{
-    width: 100%;
-    height: 100%;
-    position: relative;
+    
 
 }
+.imgDiv, .imgDiv{
+}
+.tables{
+    width: 100%;
+     height:100%;
+    position: relative;
+    /* background-color: aqua; */
+}
+.ta{
+    width: 2.5rem;
+    height: 2.5rem;
+    background-color:blue;
+    position:absolute;
+    cursor: pointer;
+}
+.ta:nth-child(1){
+   top: 3.5rem;
+   left: 4rem;
+    z-index: 2;
+}
+.ta:nth-child(2){
+    top: 3.5rem;
+    left: 13.5rem;
+     z-index: 2;
+ }
+ .ta:nth-child(3){
+    top: 3.5rem;
+    left: 18rem;
+     z-index: 2;
+ }
+ .ta:nth-child(4){
+    top: 3.5rem;
+    left: 26rem;
+     z-index: 2;
+ }
+ .ta:nth-child(5){
+    top: 3.5rem;
+    left: 30rem;
+     z-index: 2;
+ }
+ .ta:nth-child(6){
+    top: 3.5rem;
+    left: 34rem;
+     z-index: 2;
+ }
+ .ta:nth-child(7){
+    top: 3.5rem;
+    left: 38rem;
+     z-index: 2;
+ }
+ .ta:nth-child(8){
+    top: 3.5rem;
+    left: 42rem;
+     z-index: 2;
+ }
+ .ta:nth-child(9){
+    top: 18rem;
+    right: 10rem;
+     z-index: 2;
+ }
+ .ta:nth-child(10){
+    top: 21rem;
+    right: 10rem;
+     z-index: 2;
+ }
+ .ta:nth-child(11){
+    top: 24rem;
+    right: 10rem;
+     z-index: 2;
+ }
+
 .img1, .img2{
-    position: absolute;
+    width: 60rem;
+    height: 30rem;
 }
 .img1{
     display: none;
 }
-.btnWrapper{
 
-}
-.baseBtn1, .baseBtn2{
+.baseBtn1, .baseBtn2, .bookBtn{
     width: 15rem;
     height: 4rem;
     color: white;
     font-weight: bold;
     cursor: pointer;
+    border-radius: 0.5rem;
 }
 .baseBtn2{
     background-color: green;
@@ -89,4 +159,56 @@
 }
 .baseBtn1{
     background-color: #ff3333;
+}
+.bookBtn{
+    position: absolute;
+    background-color: rgb(255, 123, 0);
+    top: 20rem;
+    left: 60rem;
+
+}
+.tableIn:hover::after {
+    content: "Please select or remove tables by clicking on it";
+    position: absolute;
+    width: 20rem;
+    height: 4rem;
+    background-color: rgb(16, 176, 7); 
+   top: -0.1rem;
+   left: 0;
+   color: white;
+   font-size: 1.5rem;
+   border-radius: 0.2rem;
+   padding: 0.5rem;
+   text-align: center;
+}
+
+.reservation{
+    position: absolute;
+    width: 15rem;
+    height: 10rem;
+    background-color: green;
+    top: -12rem;
+    left: -6rem;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+   
+    font-size: 1.5rem;
+}
+.date{
+    margin-top: 1rem;
+    margin-bottom: 2rem
+}
+.free{
+    background-color: rgb(13, 75, 13);
+    color: white;
+    width: 100%;
+    height: 3rem;
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

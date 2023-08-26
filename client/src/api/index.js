@@ -21,5 +21,7 @@ export const cart = (forCart)=>{return API.post("/user/cart", forCart)};
 export const getFromCart_1 = (userId)=>{return API.get(`/user/${userId}`)};
 export const delFromCart = (userId, mealId)=>{return API.post("/user/del", {userId, mealId})};
 
+export const bookTable = (bookedTable) => {return API.post("/book/table", {bookedTable})};
+export const getBookdTables = ()=>{return API.get("/book/fetchAll")};
 
 

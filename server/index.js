@@ -6,6 +6,8 @@ import dotenv from "dotenv";
 import bodyParser from 'body-parser';
 import  mealRoutes  from "./routes/meals.js";
 import  userRoutes  from "./routes/users.js";
+import  bookRoutes  from "./routes/book.js";
+
 
 
 const app = express();
@@ -24,6 +26,8 @@ app.get("/", (req, res) => {
 
 app.use("/meals", mealRoutes)
 app.use("/user", userRoutes)
+app.use("/book", bookRoutes)
+
 
 
 
