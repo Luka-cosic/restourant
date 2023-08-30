@@ -1,0 +1,124 @@
+.ta {
+    width: 3.5rem;
+    height: 5rem;
+    /* background-color:transparent; */
+    position: absolute;
+    cursor: pointer;
+    background-color: transparent;
+}
+
+.reservation {
+    width: 20rem;
+    background-color: green;
+    transform: translate(-50%, -120%);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    display: none;
+    font-size: 1.5rem;
+    padding-top: 1rem;
+    box-shadow: 0.3rem 0.3rem 1rem black;
+}
+
+.date {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+.br {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.redGreen {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.free,
+.booked {
+    background-color: rgb(13, 75, 13);
+    color: white;
+    width: 100%;
+    height: 4rem;
+    /* position: absolute; */
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0.5rem 0;
+}
+
+.booked {
+    background-color: red;
+
+}
+
+
+
+.ta:nth-child(1) {
+    top: -25rem;
+    left: 13.5rem;
+    z-index: 2;
+}
+
+.ta:nth-child(2) {
+    top: -25rem;
+    left: 22.5rem;
+    z-index: 2;
+}
+
+.ta:nth-child(3) {
+    top: -25rem;
+    left: 31.5rem;
+    z-index: 2;
+}
+
+.ta:nth-child(4) {
+    top: -25rem;
+    left: 41rem;
+    z-index: 2;
+}
+
+.ta:nth-child(5) {
+    top: -25.5rem;
+    left: 49.5rem;
+    z-index: 2;
+}
+
+.ta:nth-child(6) {
+    top: -13rem;
+    left: 51rem;
+    z-index: 2;
+}
+
+.ta:nth-child(7) {
+    top: -13.5rem;
+    left: 39rem;
+    z-index: 2;
+}
+
+.ta:nth-child(8) {
+    top: -14rem;
+    left: 29rem;
+    z-index: 2;
+}
+
+.ta:nth-child(9) {
+    top: -14rem;
+    left: 20rem;
+
+    z-index: 2;
+}
+
+.ta:nth-child(10) {
+    top: -13rem;
+    left: 11rem;
+    z-index: 2;
+}
+

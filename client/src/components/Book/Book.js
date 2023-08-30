@@ -3,68 +3,58 @@ import img1 from "./images/osnova3.png";
 import img2 from "./images/osnova4.png";
 import { useRef, useState, useEffect } from "react";
 import { bookTable, getBookdTables } from "../../api/index.js";
+import { entrance, ground } from './JS/allTables.js';
+import Table from "./Table/Table.js";
+import TableG from "./TableG/TableG.js";
 import "./css/book.css";
 
 
 const Book = ({ closeChange }) => {
-   
+
     closeChange?.remove("change");
     const img1Ref = useRef(null);
     const img2Ref = useRef(null);
-    let date = new Date().toDateString();
     
-    const [book, setBook] = useState({ date: "", time: "", table: "", persons: "", name: "", phone: "", email: "", comment: "" });
+    const [entrance_X, setEntrance_X ] = useState(true)
+    const [ book, setBook] = useState({ date: "", time: "", table: "", persons: "", name: "", phone: "", email: "", comment: "" });
     const [bookedTables, setBookedTables] = useState([]);
 
-    const handleBook = (e) => {
-        let { data }= bookTable(book);
+    const handleBook = ()=>{
+        bookTable(book)
     }
-    const handleClick = (e) => {
-        setBook({ ...book, table: e.target.id });
-    }
-    const getAll = async ()=>{
+    const getAll = async () => {
         let { data } = await getBookdTables();
         setBookedTables(data);
-        
+
     }
+    
     const changePicture = (bool) => {
         const tables = document.querySelectorAll(".book_ta__apOzL");
-        
+
         if (bool) {
             img1Ref.current.style.display = "block";
             img2Ref.current.style.display = "none";
-            tables.forEach((el)=>{ el.style.display = "none"; })
-            
+            tables.forEach((el) => { el.style.display = "none"; })
+
         } else {
             img1Ref.current.style.display = "none";
             img2Ref.current.style.display = "block";
-            tables.forEach((el)=>{ el.style.display = "block"; })
+            tables.forEach((el) => { el.style.display = "block"; })
         }
     }
 
-    const [br, setBr] = useState("")
-      const Reservation = ({br}) => {
+   
+    const allTables = entrance.map((table)=>{
+        return <Table table={table} book={book} setBook={setBook} bookedTables={bookedTables} key={table.id} />
+    })
         
-        return (
-            <div className={styles.reservation}>
-                <div  className={styles.date}>{date}</div>
-                <div  className={styles.br}>Table nr. {br} </div>
-                <div  className={styles.free}>FREE</div>
+    const allTablesG = ground.map((table)=>{
+        return <TableG table={table} book={book} setBook={setBook} bookedTables={bookedTables} key={table.id} />
+    })
 
-
-            </div>
-        )
-
-    }
-
-    const showReservation = (e)=>{
-        setBr(e.currentTarget.id)
-        
-}
-
-    useEffect(()=>{
+    useEffect(() => {
         getAll()
-    },[])
+    }, [])
     return (
         <div className={styles.container}>
             <div className={styles.wrapp}>
@@ -95,34 +85,25 @@ const Book = ({ closeChange }) => {
                     <div className={styles.imgHolder}>
                         <div className={styles.imgDiv}>
                             <div className={styles.tables}>
-                                
-                                <div className={styles.ta} onMouseEnter={showReservation} onClick={handleClick} id="1"></div>
-                                <div className={styles.ta} onMouseEnter={showReservation} onClick={handleClick} id="2">
-                                <Reservation br={br} />
-                                </div>
-                                <div className={styles.ta} onClick={handleClick} id="3"></div>
-                                <div className={styles.ta} onClick={handleClick} id="4"></div>
-                                <div className={styles.ta} onClick={handleClick} id="5"></div>
-                                <div className={styles.ta} onClick={handleClick} id="6"></div>
-                                <div className={styles.ta} onClick={handleClick} id="7"></div>
-                                <div className={styles.ta} onClick={handleClick} id="8"></div>
-                                <div className={styles.ta} onClick={handleClick} id="9"></div>
-                                <div className={styles.ta} onClick={handleClick} id="10"></div>
-                                <div className={styles.ta} onClick={handleClick} id="11"></div>
+
+                                { entrance_X && allTables }
 
                                 <img className={styles.img1} src={img2} ref={img1Ref} alt="" />
                             </div>
                         </div>
                         <div className={styles.imgDiv}>
                             <div className={styles.tables}>
+
+                                { !entrance_X && allTablesG}
+
                                 <img className={styles.img2} src={img1} ref={img2Ref} alt="" />
                             </div>
                         </div>
                     </div>
                 </div>
                 <div className={styles.btnWrapper}>
-                    <button className={styles.baseBtn2} onClick={() => { changePicture(false) }}>Entrance</button>
-                    <button className={styles.baseBtn1} onClick={() => { changePicture(true) }} >Ground Floor</button>
+                    <button className={styles.baseBtn2} onClick={() => { changePicture(false); setEntrance_X(true) }}>Entrance</button>
+                    <button className={styles.baseBtn1} onClick={() => { changePicture(true); setEntrance_X(false) }} >Ground Floor</button>
                     <button className={styles.bookBtn} onClick={handleBook} >Book Table</button>
 
                 </div>
