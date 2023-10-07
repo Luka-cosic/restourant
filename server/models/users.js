@@ -6,6 +6,7 @@ const usersSchema = mongoose.Schema({
     email: {type: "string", required: true},
     password: {type: "string", required: true},
     admin: {type: "boolean", default: false},
+    position: {type: "string", default: "guest"},
     cart: []
 });
 

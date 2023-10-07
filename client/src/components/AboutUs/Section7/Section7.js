@@ -82,6 +82,7 @@ const Section7 = () => {
     return (
         <div className={styles.wrapper} ref={wrapperRef}>
             <section className={styles.header}>
+                <h1 className={styles.heading}>JAHORONA</h1>
                 <div className={styles.head_imgWrapper}>
                     <img className={styles.head_img} src={jah1} alt="" />
                 </div>

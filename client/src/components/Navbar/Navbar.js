@@ -2,7 +2,7 @@ import styles from "./css/navbar.module.css";
 import { useEffect } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { getUser, logout, } from "../Login/JS/login.js";
-import { GrCart } from "react-icons/gr";
+import { BsCart2 } from "react-icons/bs";
 import { BsArrowLeft } from "react-icons/bs";
 
 import "./css/nav.css";
@@ -12,7 +12,7 @@ const Navbar = ({ setCloseChange, loggedUser, setLoggedUser, setUser, addToCart 
     let user = getUser();
     const navigate = useNavigate();
     const location = useLocation();
-    
+   
     const handleLogout = () => {
         logout();
         setLoggedUser(null);
@@ -46,11 +46,16 @@ const Navbar = ({ setCloseChange, loggedUser, setLoggedUser, setUser, addToCart 
             <div className={styles.right}>
                 {user ?
                     <div className={styles.login} >
+                        {user.result.admin && <Link to="/admin" className={styles.admin}>Admin</Link>}
                         <span className={styles.logoUser}>{user.result.firstName.split("")[0]}</span>
                         <span className={styles.logoutSpan} onClick={handleLogout}>Logout</span>
                         <div className={styles.cartWrapp} onClick={handleOrder}>
                             <div className={styles.countAdd}>{addToCart?.length}</div>
-                            <GrCart className={styles.cartIconn} />
+                            <dir className={styles.cartIconn}>
+                                <BsCart2  />
+                            </dir>
+
+                            
                         </div>
                     </div> : <Link to="/login" className={styles.login}>Login/Register</Link>}
 

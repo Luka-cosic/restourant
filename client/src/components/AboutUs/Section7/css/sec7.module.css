@@ -15,8 +15,14 @@ section {
     justify-content: center;
   }
   
-  .header{
-    
+  .heading{
+    font-size: 7rem;
+    color: #fff;
+    text-align: center;
+    position: absolute;
+    top: 15rem;
+    letter-spacing: 2rem;
+    z-index: 10;
   }
   .head_imgWrapper{
     width: 90%;

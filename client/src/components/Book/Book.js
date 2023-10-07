@@ -45,8 +45,10 @@ const Book = ({ closeChange }) => {
 
    
     const allTables = entrance.map((table)=>{
+        
         return <Table table={table} book={book} setBook={setBook} bookedTables={bookedTables} key={table.id} />
     })
+     
         
     const allTablesG = ground.map((table)=>{
         return <TableG table={table} book={book} setBook={setBook} bookedTables={bookedTables} key={table.id} />

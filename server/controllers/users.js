@@ -88,7 +88,6 @@ export const getFromCart = async (req, res) => {
 }
 
 export const delFromCart = async (req, res)=>{
-    console.log(req.body);
     let userId = req.body.userId;
     let mealId = req.body.mealId;
     let doc = await Users.findById(userId);
@@ -102,4 +101,30 @@ export const delFromCart = async (req, res)=>{
    res.status(200).send(saved.cart)
     
        
+}
+
+export const newEmployee = async (req,res)=>{
+    const user = req.body;
+
+    try {
+        const existingUser = await Users.findOne({ email: user.email });
+
+        if (existingUser) { return res.status(400).json({ message: "This email already exits" }) };
+
+        const hashedPassword = await bcrypt.hash(user.password, 12);
+        const result = await Users.create({ firstName: user.firstName, lastName: user.lastName, email: user.email, password: hashedPassword, position: user.position });
+        
+        res.status(200).json({ message: "You have added an employee" })
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+export const findStaff = async (req,res) => {
+    const position = req.body.position;
+
+    const staff = await Users.find({position: position});
+    res.status(200).send(staff);
+    
+    
 }

@@ -9,6 +9,8 @@ import Order from "./components/Order/Order";
 import Photos from "./components/Photos/Photos";
 import Book from "./components/Book/Book";
 import { getUser } from "./components/Login/JS/login"
+import Admin from "./components/Admin/Admin";
+import Staff from "./components/Staff/Staff";
 
 import { useState, useEffect } from "react";
 
@@ -16,7 +18,8 @@ function App(){
   const [closeChange, setCloseChange] = useState()
   const [loggedUser, setLoggedUser] = useState(null);
   const [user, setUser] = useState(getUser()?.result);
-  const [addToCart, setAddToCart] = useState(getUser()?.result?.cart)
+  const [addToCart, setAddToCart] = useState(getUser()?.result?.cart);
+  const [staff, setStaff] = useState("")
   let location = useLocation();
   
   
@@ -37,6 +40,8 @@ function App(){
       <Route path="/order" element={user?  <Order closeChange={closeChange} addToCart={addToCart} setAddToCart={setAddToCart} /> :  <Navigate to="/" replace={true} />} />
       <Route path="/photos" element = { <Photos closeChange={closeChange}  /> } />
       <Route path="/book" element = { <Book closeChange={closeChange}  /> } />
+      <Route path="/admin" element = { <Admin closeChange={closeChange} setStaff={setStaff}  /> } />
+      <Route path="/staff" element = { <Staff closeChange={closeChange} staff={staff}  /> } />
 
     </Routes>
     </>

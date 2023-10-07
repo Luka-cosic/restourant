@@ -4,9 +4,10 @@ const TableG = ({book,setBook, table, bookedTables})=>{
 
     let arr = [];
 
-    bookedTables.forEach((book) =>{
+    bookedTables.forEach((book, i) =>{
+
         if(table.id === book.table){
-            arr.push(<div className={styles.booked}>ALREADY BOOKED from {book.time}h</div>)
+            arr.push(<div className={styles.booked} key={i}>ALREADY BOOKED from {book.time}h</div>)
         }  
     })
     
