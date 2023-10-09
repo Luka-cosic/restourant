@@ -19,8 +19,10 @@ const Book = ({ closeChange }) => {
     const [ book, setBook] = useState({ date: "", time: "", table: "", persons: "", name: "", phone: "", email: "", comment: "" });
     const [bookedTables, setBookedTables] = useState([]);
 
-    const handleBook = ()=>{
-        bookTable(book)
+    const handleBook = async ()=>{
+       const {data} = await bookTable(book);
+       setBookedTables(data)
+       
     }
     const getAll = async () => {
         let { data } = await getBookdTables();

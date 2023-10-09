@@ -1,4 +1,7 @@
 import Users from "../models/users.js";
+import Book from "../models/book.js";
+import Cart from "../models/cart.js";
+
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 export const signUp = async (req, res) => {
@@ -29,9 +32,21 @@ export const signIn = async (req, res) => {
         const result = await Users.findOne({ email: email });
         if (!result) { return res.status(404).json({ message: "There is no user with that email" }) };
         const pass = await bcrypt.compare(password, result.password);
-        if (!pass) { return res.status(400).json({ message: "Password is wrong" }) }
+        if (!pass) { return res.status(400).json({ message: "Password is wrong" }) };
 
         const token = jwt.sign({ email: result.email, id: result._id }, "test", { expiresIn: "2h" });
+
+
+        if(result.position === "waiter"){
+            const booked = await Book.find();
+            res.status(200).json({ result, token, booked });
+            return;
+        }
+        if(result.position === "deliverer"){
+            const cart = await Cart.find();
+            res.status(200).json({ result, token, cart });
+            return;
+        }
         res.status(200).json({ result, token })
     } catch (error) {
         console.log(error);

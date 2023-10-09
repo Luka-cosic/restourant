@@ -12,7 +12,7 @@ const TableG = ({book,setBook, table, bookedTables})=>{
     })
     
   if(arr.length === 0){
-    arr.push(<div className={styles.free}>FREE</div>)
+    arr.push(<div className={styles.free} key={Math.random(100000)}>FREE</div>)
     
   }
     

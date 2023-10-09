@@ -1,10 +1,11 @@
 import express from 'express';
-import { bookTable, fetchAll } from "../controllers/book.js";
+import { bookTable, fetchAll, delCard } from "../controllers/book.js";
 
 const router = express.Router();
 
-router.get('/fetchAll', fetchAll)
+router.get('/fetchAll', fetchAll);
 router.post("/table", bookTable );
+router.post("/delCard", delCard);
 
 
 export default router;

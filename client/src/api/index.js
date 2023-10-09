@@ -23,6 +23,8 @@ export const delFromCart = (userId, mealId)=>{return API.post("/user/del", {user
 
 export const bookTable = (bookedTable) => {return API.post("/book/table", {bookedTable})};
 export const getBookdTables = ()=>{return API.get("/book/fetchAll")};
+export const deleteCard = (id)=>{return API.post("/book/delCard", {id})};
+
 
 export const addEmployee = (newEmployee)=>{ return API.post("/user/newEmployee", newEmployee) }
 

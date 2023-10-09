@@ -2,8 +2,8 @@ import styles from './css/staff.module.css';
 import { useEffect, useState } from 'react';
 import { getStaff } from "../../api/index.js";
 
-const Staff = ({ staff }) => {
-    
+const Staff = ({closeChange, staff }) => {
+    closeChange?.remove("change");
     const [workers, setWorkers] = useState([])
     const getStaff_1 = async (staff) => {
         const { data } = await getStaff(staff);

@@ -13,9 +13,21 @@ export const bookTable = async (req, res)=>{
     const doc = new Book(bookedTable);
     
     try {
-       let data =  await doc.save(); 
+       await doc.save(); 
+       const allBooked = await Book.find();
+    //    console.log(allBooked);
+       
+       res.status(201).json(allBooked);
+       
     } catch (error) {
         
-    }
-    
+    }  
+}
+
+export const delCard = async (req, res)=>{
+    let id = req.body.id;
+    await Book.deleteOne({_id: id});
+    const booked = await Book.find();
+    res.status(201).json(booked)
+
 }

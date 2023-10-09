@@ -7,7 +7,7 @@ import { signUp, signIn } from "../../api/index";
 import { AiFillEyeInvisible, AiFillEye } from "react-icons/ai";
 
 
-const Login = ({ closeChange, setLoggedUser }) => {
+const Login = ({ closeChange, setLoggedUser,setBookedTables }) => {
     closeChange?.remove("change");
     const navigate = useNavigate();
     const [isVisible, setIsVisible] = useState(false)
@@ -25,6 +25,12 @@ const Login = ({ closeChange, setLoggedUser }) => {
             const { data } = await signIn(user);
             saveUser(data);
             setLoggedUser(data);
+            if(data.result.position === "waiter"){
+                setBookedTables(data.booked);
+                navigate("/waiter");
+                return 
+            }
+            
             navigate("/");
 
         }
@@ -50,7 +56,7 @@ const Login = ({ closeChange, setLoggedUser }) => {
                 )}
                 <div className={`${styles.inputWrapp} inputWrapp ${!isLoged && "changeL"}`} onClick={handleFocus}>
                     <label className={`${styles.label} label`}>Email</label>
-                    <input type="text" className={styles.input} autoFocus={!isLoged} onChange={(e) => { setUser({ ...user, email: e.target.value }) }} autoComplete="on" value={user.email} />
+                    <input id="email" type="text" className={styles.input} autoFocus={!isLoged} onChange={(e) => { setUser({ ...user, email: e.target.value }) }} autoComplete="true" value={user.email} />
                 </div>
                 <div className={`${styles.inputWrapp} inputWrapp`} onClick={handleFocus}>
                     <label className={`${styles.label} label`}>Password</label>
