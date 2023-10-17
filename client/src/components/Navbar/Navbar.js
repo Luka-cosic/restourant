@@ -7,7 +7,7 @@ import { BsArrowLeft } from "react-icons/bs";
 
 import "./css/nav.css";
 
-const Navbar = ({ setCloseChange, loggedUser, setLoggedUser, setUser, addToCart }) => {
+const Navbar = ({ setCloseChange, loggedUser, setLoggedUser, setUser, addToCart}) => {
 
     let user = getUser();
     const navigate = useNavigate();
@@ -19,7 +19,6 @@ const Navbar = ({ setCloseChange, loggedUser, setLoggedUser, setUser, addToCart 
         setUser(null);
         navigate("/")
     }
-
 
     const closeBtn = (e) => {
         e.currentTarget.classList.toggle("change");
@@ -41,12 +40,14 @@ const Navbar = ({ setCloseChange, loggedUser, setLoggedUser, setUser, addToCart 
         <nav className={styles.navbarContainer}>
             {location.pathname === '/order'?
             <Link to="/food" className={styles.logo}><BsArrowLeft className={styles.arrow} /></Link> :
-            <Link to="/" className={styles.logo}>Rimac</Link>}
+            <Link to="/" className={styles.logo}>HOME</Link>}
             
             <div className={styles.right}>
                 {user ?
                     <div className={styles.login} >
                         {user.result.admin && <Link to="/admin" className={styles.admin}>Admin</Link>}
+                        {user.result.position === "waiter" && <Link to="/waiter" className={styles.admin}>Waiter</Link>}
+
                         <span className={styles.logoUser}>{user.result.firstName.split("")[0]}</span>
                         <span className={styles.logoutSpan} onClick={handleLogout}>Logout</span>
                         <div className={styles.cartWrapp} onClick={handleOrder}>

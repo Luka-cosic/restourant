@@ -1,6 +1,6 @@
 import Users from "../models/users.js";
 import Book from "../models/book.js";
-import Cart from "../models/cart.js";
+// import Cart from "../models/ordered.js";
 
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
@@ -140,6 +140,12 @@ export const findStaff = async (req,res) => {
 
     const staff = await Users.find({position: position});
     res.status(200).send(staff);
-    
+ 
+}
+
+export const delStaff = async (req, res) => {
+    const id = req.body.id;
+    let deleted = await Users.findByIdAndDelete(id);
+    res.status(200).json(deleted)
     
 }

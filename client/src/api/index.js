@@ -26,7 +26,10 @@ export const getBookdTables = ()=>{return API.get("/book/fetchAll")};
 export const deleteCard = (id)=>{return API.post("/book/delCard", {id})};
 
 
-export const addEmployee = (newEmployee)=>{ return API.post("/user/newEmployee", newEmployee) }
+export const addEmployee = (newEmployee)=>{ return API.post("/user/newEmployee", newEmployee) };
+export const getStaff = (staff)=>{ return API.post("/user/findStaff", {position: staff}) };
+export const delEmployee = (id)=>{ return API.post("/user/delStaff",  { id: id }) };
 
-export const getStaff = (staff)=>{ return API.post("/user/findStaff", {position: staff}) }
+export const orderFood = (customer, forOrder)=>{ return API.post("/order", {customer, forOrder}) }
+
 

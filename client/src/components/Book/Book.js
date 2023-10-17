@@ -9,7 +9,7 @@ import TableG from "./TableG/TableG.js";
 import "./css/book.css";
 
 
-const Book = ({ closeChange }) => {
+const Book = ({ closeChange, bookedTables, setBookedTables }) => {
 
     closeChange?.remove("change");
     const img1Ref = useRef(null);
@@ -17,11 +17,10 @@ const Book = ({ closeChange }) => {
     
     const [entrance_X, setEntrance_X ] = useState(true)
     const [ book, setBook] = useState({ date: "", time: "", table: "", persons: "", name: "", phone: "", email: "", comment: "" });
-    const [bookedTables, setBookedTables] = useState([]);
 
     const handleBook = async ()=>{
        const {data} = await bookTable(book);
-       setBookedTables(data)
+       setBookedTables(data);
        
     }
     const getAll = async () => {

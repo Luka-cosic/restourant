@@ -7,7 +7,7 @@ import { signUp, signIn } from "../../api/index";
 import { AiFillEyeInvisible, AiFillEye } from "react-icons/ai";
 
 
-const Login = ({ closeChange, setLoggedUser,setBookedTables }) => {
+const Login = ({ closeChange, setLoggedUser, setBookedTables }) => {
     closeChange?.remove("change");
     const navigate = useNavigate();
     const [isVisible, setIsVisible] = useState(false)
@@ -25,12 +25,12 @@ const Login = ({ closeChange, setLoggedUser,setBookedTables }) => {
             const { data } = await signIn(user);
             saveUser(data);
             setLoggedUser(data);
-            if(data.result.position === "waiter"){
+            if (data.result.position === "waiter") {
                 setBookedTables(data.booked);
                 navigate("/waiter");
-                return 
+                return
             }
-            
+
             navigate("/");
 
         }

@@ -23,6 +23,8 @@ function App(){
   const [addToCart, setAddToCart] = useState(getUser()?.result?.cart);
   const [staff, setStaff] = useState("");
   const [bookedTables, setBookedTables ] = useState([]);
+  
+
   let location = useLocation();
   
  
@@ -33,7 +35,7 @@ function App(){
   
   return(
     <>
-    <Navbar setCloseChange={setCloseChange} loggedUser={loggedUser} setLoggedUser={setLoggedUser} setUser={setUser} addToCart={addToCart} />
+    <Navbar setCloseChange={setCloseChange} loggedUser={loggedUser} setLoggedUser={setLoggedUser} setUser={setUser} addToCart={addToCart} bookedTables={bookedTables} />
     <Routes>
       <Route path="/" element={<Home closeChange={closeChange} />} />
       <Route path="/floatMenu" element={<FloatMenu />} />
@@ -42,7 +44,7 @@ function App(){
       <Route path="/login" element={<Login closeChange={closeChange} setLoggedUser={setLoggedUser} setBookedTables={setBookedTables} />} />
       <Route path="/order" element={user?  <Order closeChange={closeChange} addToCart={addToCart} setAddToCart={setAddToCart} /> :  <Navigate to="/" replace={true} />} />
       <Route path="/photos" element = { <Photos closeChange={closeChange}  /> } />
-      <Route path="/book" element = { <Book closeChange={closeChange}  /> } />
+      <Route path="/book" element = { <Book closeChange={closeChange} bookedTables={bookedTables} setBookedTables={setBookedTables} /> } />
       <Route path="/admin" element = { <Admin closeChange={closeChange} setStaff={setStaff}  /> } />
       <Route path="/staff" element = { <Staff closeChange={closeChange} staff={staff}  /> } />
       <Route path="/waiter" element = {loggedUser?.result.position === "waiter"?  <Waiter closeChange={closeChange} bookedTables={bookedTables} setBookedTables={setBookedTables}  /> : <Navigate to="/" replace={true} /> } /> 
