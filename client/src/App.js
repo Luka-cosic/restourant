@@ -12,6 +12,8 @@ import { getUser } from "./components/Login/JS/login"
 import Admin from "./components/Admin/Admin";
 import Staff from "./components/Staff/Staff";
 import Waiter from "./components/Waiter/Waiter";
+import Delivier from "./components/Delivier/Delivier";
+
 
 
 import { useState, useEffect } from "react";
@@ -23,7 +25,8 @@ function App(){
   const [addToCart, setAddToCart] = useState(getUser()?.result?.cart);
   const [staff, setStaff] = useState("");
   const [bookedTables, setBookedTables ] = useState([]);
-  
+  const [allOrdered, setAllOrdered] = useState([]);
+
 
   let location = useLocation();
   
@@ -32,6 +35,8 @@ function App(){
     setUser(getUser()?.result)
     setAddToCart(getUser()?.result?.cart)
   },[location]);
+
+ 
   
   return(
     <>
@@ -41,14 +46,14 @@ function App(){
       <Route path="/floatMenu" element={<FloatMenu />} />
       <Route path="/aboutUs" element={<AboutUs closeChange={closeChange}  />} />
       <Route path="/food" element={<Food closeChange={closeChange} setAddToCart={setAddToCart} />} />
-      <Route path="/login" element={<Login closeChange={closeChange} setLoggedUser={setLoggedUser} setBookedTables={setBookedTables} />} />
+      <Route path="/login" element={<Login closeChange={closeChange} setLoggedUser={setLoggedUser} setBookedTables={setBookedTables} setAllOrdered={setAllOrdered} />} />
       <Route path="/order" element={user?  <Order closeChange={closeChange} addToCart={addToCart} setAddToCart={setAddToCart} /> :  <Navigate to="/" replace={true} />} />
       <Route path="/photos" element = { <Photos closeChange={closeChange}  /> } />
       <Route path="/book" element = { <Book closeChange={closeChange} bookedTables={bookedTables} setBookedTables={setBookedTables} /> } />
       <Route path="/admin" element = { <Admin closeChange={closeChange} setStaff={setStaff}  /> } />
       <Route path="/staff" element = { <Staff closeChange={closeChange} staff={staff}  /> } />
       <Route path="/waiter" element = {loggedUser?.result.position === "waiter"?  <Waiter closeChange={closeChange} bookedTables={bookedTables} setBookedTables={setBookedTables}  /> : <Navigate to="/" replace={true} /> } /> 
-
+      <Route path="/deliverer" element = {loggedUser?.result.position === "deliverer"?  <Delivier closeChange={closeChange} allOrdered={allOrdered} setAllOrdered={setAllOrdered} /> : <Navigate to="/" replace={true} /> } /> 
 
     </Routes>
     </>

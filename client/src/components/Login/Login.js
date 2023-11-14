@@ -7,10 +7,10 @@ import { signUp, signIn } from "../../api/index";
 import { AiFillEyeInvisible, AiFillEye } from "react-icons/ai";
 
 
-const Login = ({ closeChange, setLoggedUser, setBookedTables }) => {
+const Login = ({ closeChange, setLoggedUser, setBookedTables, setAllOrdered }) => {
     closeChange?.remove("change");
     const navigate = useNavigate();
-    const [isVisible, setIsVisible] = useState(false)
+    const [isVisible, setIsVisible] = useState(false);
     const [isLoged, serIsLoged] = useState(false);
     const [user, setUser] = useState({ firstName: "", lastName: "", email: "", password: "", repeatPass: "" });
     const handleFocus = (e) => { focus(e) };
@@ -30,7 +30,12 @@ const Login = ({ closeChange, setLoggedUser, setBookedTables }) => {
                 navigate("/waiter");
                 return
             }
-
+            if (data.result.position === "deliverer") {
+                setAllOrdered(data.allOrders);
+                navigate("/deliverer");
+                return
+            }
+           
             navigate("/");
 
         }

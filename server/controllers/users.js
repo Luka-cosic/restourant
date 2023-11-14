@@ -1,6 +1,6 @@
 import Users from "../models/users.js";
 import Book from "../models/book.js";
-// import Cart from "../models/ordered.js";
+import Ordered from "../models/ordered.js";
 
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
@@ -43,8 +43,8 @@ export const signIn = async (req, res) => {
             return;
         }
         if(result.position === "deliverer"){
-            const cart = await Cart.find();
-            res.status(200).json({ result, token, cart });
+            const allOrders = await Ordered.find();
+            res.status(200).json({ result, token, allOrders });
             return;
         }
         res.status(200).json({ result, token })

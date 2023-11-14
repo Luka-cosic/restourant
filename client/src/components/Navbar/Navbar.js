@@ -47,6 +47,7 @@ const Navbar = ({ setCloseChange, loggedUser, setLoggedUser, setUser, addToCart}
                     <div className={styles.login} >
                         {user.result.admin && <Link to="/admin" className={styles.admin}>Admin</Link>}
                         {user.result.position === "waiter" && <Link to="/waiter" className={styles.admin}>Waiter</Link>}
+                        {user.result.position === "deliverer" && <Link to="/deliverer" className={styles.admin}>Deliverer</Link>}
 
                         <span className={styles.logoUser}>{user.result.firstName.split("")[0]}</span>
                         <span className={styles.logoutSpan} onClick={handleLogout}>Logout</span>

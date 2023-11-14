@@ -8,11 +8,13 @@ import  mealRoutes  from "./routes/meals.js";
 import  userRoutes  from "./routes/users.js";
 import  bookRoutes  from "./routes/book.js";
 import  orderRoutes  from "./routes/order.js";
-
-
+import { Server } from 'socket.io';
+import { createServer } from "http";
 
 
 const app = express();
+const httpServer = createServer(app);
+
 const port = 5000;
 const url = "mongodb+srv://lukarestaurant:N2HlBgBsZyrbhFKG@cluster0.2kfykcy.mongodb.net/?retryWrites=true&w=majority"
 
@@ -20,11 +22,20 @@ app.use(bodyParser.urlencoded({limit:"30mb", extended:true}));
 app.use(bodyParser.json({limit:"30mb", extended:true}));
 app.use(cors());
 
+const io = new Server(httpServer,{
+  cors: {
+    origin: "http://localhost:3000"
+  }
+});
+
 
 app.get("/", (req, res) => {
     
   res.send("Hallo world")
 });
+
+
+
 
 app.use("/meals", mealRoutes)
 app.use("/user", userRoutes)
@@ -32,12 +43,14 @@ app.use("/book", bookRoutes)
 app.use("/order", orderRoutes)
 
 
-
+io.on('connection', (socket) => {
+  console.log('a user connected');
+});
 
 
 
 mongoose.connect(url,{useNewUrlParser: true, useUnifiedTopology: true})
-.then(()=> app.listen(port, ()=> console.log(`Listening on port ${port}`)))
+.then(()=> httpServer.listen(port, ()=> console.log(`Listening on port ${port}`)))
 .catch((error)=> console.log(error.message));
   
   

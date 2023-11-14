@@ -14,11 +14,11 @@ const Order = ({closeChange, addToCart,setAddToCart})=>{
     let uk = 0;
     
     addToCart.forEach(el => {
-        uk = uk + el.col * el.price 
+        uk = uk + el.col * el.price;
+       
     });
     
     const getFromCart = async ()=>{
-        setCustomer({...customer, total: uk});
         setIsLoading(true);
         let {data} = await getFromCart_1(user.result._id);
         setAddToCart(data)
@@ -28,7 +28,6 @@ const Order = ({closeChange, addToCart,setAddToCart})=>{
     const handleFocus = ()=>{}
    
     const order = ()=>{
-        setCustomer({...customer, total: uk});
         orderFood(customer, addToCart);
     }
     const allOrdered = addToCart.map((card,i)=>{
