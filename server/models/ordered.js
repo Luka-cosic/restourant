@@ -12,7 +12,6 @@ const orderedShema = mongoose.Schema({
             title: String,
             mealId: String,
             recipe: String,
-            img: String,
             price: String,
             col: Number
         }

@@ -1,20 +1,30 @@
 import styles from "./css/card.module.css";
 import { deleteOrderedCard } from "../../../api/index";
+import { io } from 'socket.io-client';
+
 
 const Card = ({el})=>{
      
-    console.log(el);
-    
-    const allOrdered = el.forOrder.map((meal,i)=>{
+    const ordered = el.forOrder.map((meal,i)=>{
+        
         
         return(
             <div className={styles.meal} key={i}>{meal.title}; col: {meal.col}; {meal.price} din</div>
         )
     })
     
-    const handleDelete = (id)=>{
-        deleteOrderedCard(id)
+    const handleDelete = async (id)=>{
+       const { data } = await deleteOrderedCard(id); 
+        socetIoFunc(data); 
     }
+
+    const socetIoFunc = (data) =>{
+        const socket = io('http://localhost:5000');
+       
+            socket.emit('deleteCard', data);
+          
+    }
+   
     return(
         <div className={styles.card}>
             <div className={styles.header}>
@@ -22,7 +32,7 @@ const Card = ({el})=>{
                 <div className={styles.phone}>{el.phone}</div>
             </div>
             <div className={styles.body}>
-                {allOrdered}
+                { ordered }
             </div>
             <div className={styles.footer}>
                 <div className={styles.total}>{el.total} din</div>

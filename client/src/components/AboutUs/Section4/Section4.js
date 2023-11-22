@@ -2,27 +2,27 @@ import styles from "./css/sec4.module.css";
 
 import { useRef, useLayoutEffect } from "react";
 import img1 from "./images/img1.png";
-import img2 from "./images/koli2.jpg";
-import img3 from "./images/koli3.jpg";
-import img4 from "./images/koli4.jpg";
-import img5 from "./images/koli5.jpg";
-import img6 from "./images/koli6.jpg";
-import img7 from "./images/koli7.jpg";
-import img8 from "./images/koli8.jpg";
-import img9 from "./images/koli9.jpg";
+// import img2 from "./images/koli2.jpg";
+// import img3 from "./images/koli3.jpg";
+// import img4 from "./images/koli4.jpg";
+// import img5 from "./images/koli5.jpg";
+// import img6 from "./images/koli6.jpg";
+// import img7 from "./images/koli7.jpg";
+// import img8 from "./images/koli8.jpg";
+// import img9 from "./images/koli9.jpg";
 
 
 
 import "./css/sec4.css";
-import { gsapAnimate } from "./JS/gsapAnimate";
-import { gsap } from "gsap";
+// import { gsapAnimate } from "./JS/gsapAnimate";
+// import { gsap } from "gsap";
 
 const Section4 = () => {
 
     const sec4Ref = useRef(null);
     const rightSide = useRef(null);
     const leftSide = useRef(null);
-    const imagesRef = useRef(null);
+    // const imagesRef = useRef(null);
 
 
     // useLayoutEffect(() => {

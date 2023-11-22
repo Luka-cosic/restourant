@@ -8,8 +8,10 @@ import  mealRoutes  from "./routes/meals.js";
 import  userRoutes  from "./routes/users.js";
 import  bookRoutes  from "./routes/book.js";
 import  orderRoutes  from "./routes/order.js";
-import { Server } from 'socket.io';
+import  { socketIO } from "./socketIo/socketIO.js";
 import { createServer } from "http";
+// import { Server } from 'socket.io';
+
 
 
 const app = express();
@@ -22,12 +24,7 @@ app.use(bodyParser.urlencoded({limit:"30mb", extended:true}));
 app.use(bodyParser.json({limit:"30mb", extended:true}));
 app.use(cors());
 
-const io = new Server(httpServer,{
-  cors: {
-    origin: "http://localhost:3000"
-  }
-});
-
+socketIO(httpServer);
 
 app.get("/", (req, res) => {
     
@@ -35,17 +32,10 @@ app.get("/", (req, res) => {
 });
 
 
-
-
 app.use("/meals", mealRoutes)
 app.use("/user", userRoutes)
 app.use("/book", bookRoutes)
 app.use("/order", orderRoutes)
-
-
-io.on('connection', (socket) => {
-  console.log('a user connected');
-});
 
 
 

@@ -30,6 +30,7 @@ export const addEmployee = (newEmployee)=>{ return API.post("/user/newEmployee",
 export const getStaff = (staff)=>{ return API.post("/user/findStaff", {position: staff}) };
 export const delEmployee = (id)=>{ return API.post("/user/delStaff",  { id: id }) };
 
+export const getAllTheOrders = ()=>{ return API.post("/order/getAll") };
 export const orderFood = (customer, forOrder)=>{ return API.post("/order", {customer, forOrder}) };
 export const deleteOrderedCard = (id)=>{ return API.post("/order/delCard", {id: id}) };
 

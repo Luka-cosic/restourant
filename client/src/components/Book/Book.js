@@ -6,6 +6,7 @@ import { bookTable, getBookdTables } from "../../api/index.js";
 import { entrance, ground } from './JS/allTables.js';
 import Table from "./Table/Table.js";
 import TableG from "./TableG/TableG.js";
+import { io } from 'socket.io-client';
 import "./css/book.css";
 
 
@@ -18,9 +19,21 @@ const Book = ({ closeChange, bookedTables, setBookedTables }) => {
     const [entrance_X, setEntrance_X ] = useState(true)
     const [ book, setBook] = useState({ date: "", time: "", table: "", persons: "", name: "", phone: "", email: "", comment: "" });
 
+
+    const socetIOFunc = (data)=>{
+        const socket = io('http://localhost:5000');
+        
+        if (data) {
+            socket.emit('bookTable', data);
+          }
+    }
+
     const handleBook = async ()=>{
-       const {data} = await bookTable(book);
-       setBookedTables(data);
+       const { data } = await bookTable(book);
+       socetIOFunc(data);
+      
+       
+    //    setBookedTables(data);
        
     }
     const getAll = async () => {
