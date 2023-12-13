@@ -40,7 +40,7 @@ const Navbar = ({ setCloseChange, loggedUser, setLoggedUser, setUser, addToCart}
         <nav className={styles.navbarContainer}>
             {location.pathname === '/order'?
             <Link to="/food" className={styles.logo}><BsArrowLeft className={styles.arrow} /></Link> :
-            <Link to="/" className={styles.logo}>HOME</Link>}
+            <Link to="/" className={styles.logo}>OME</Link>}
             
             <div className={styles.right}>
                 {user ?

@@ -36,12 +36,12 @@ const Book = ({ closeChange, bookedTables, setBookedTables }) => {
     //    setBookedTables(data);
        
     }
+    
     const getAll = async () => {
         let { data } = await getBookdTables();
         setBookedTables(data);
 
     }
-    
     const changePicture = (bool) => {
         const tables = document.querySelectorAll(".book_ta__apOzL");
 
@@ -69,6 +69,7 @@ const Book = ({ closeChange, bookedTables, setBookedTables }) => {
     })
 
     useEffect(() => {
+        
         getAll();
     }, [])
     return (
