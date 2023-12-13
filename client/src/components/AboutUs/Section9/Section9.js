@@ -2,27 +2,34 @@ import styles from "./css/sec9.module.css"
 import screen from "./images/laptop-screen.png";
 import table from "./images/laptop-table.png";
 import gsap from "gsap";
-import { useEffect, useRef } from "react";
-import GoogleMapReact from 'google-map-react';
+import { useEffect, useRef, useState } from "react";
+
+import { GoogleMap,useLoadScript, Marker  } from "@react-google-maps/api";
+import { useMemo } from "react";
 
 
-const AnyReactComponent = ({ text }) => <div>{text}</div>;
+const libraries = ['places'];
 
 const Section9 = () => {
-
+    
+    
+    const center = useMemo(() => ({ lat: 44.2782847, lng: 19.8818699 }), []);
     const contRef = useRef();
     const screenRef = useRef();
+    const [marker, setMarker] = useState(false);
 
-    const defaultProps = {
-        center: {
-            lat: 40.567989,
-            lng: 30.73531
-        },
-        zoom: 5
-    };
+    setTimeout(()=>{
+        setMarker(true)
+    },2000);
+
+   const {isLoaded} = useLoadScript({
+        googleMapsApiKey: process.env.REACT_APP_API_KEY,
+        libraries
+    });
+   
 
     useEffect(() => {
-
+       
         let ctx = gsap.context(() => {
             gsap.to(screenRef.current, {
                 rotateX: 0,
@@ -30,8 +37,8 @@ const Section9 = () => {
                     trigger: contRef.current,
                     start: "50% center",
                     end: "30% center",
-                    // markers: true,
-                    onEnter: () => screenRef.current.style.transform= "rotateX(0)"
+                   
+                    onEnter: () => screenRef.current.style.transform = "rotateX(0)"
                     // onEnterBack: () => screenRef.current.style.transform= "rotateX(-88deg)"
                 }
             })
@@ -44,17 +51,19 @@ const Section9 = () => {
             <div className={styles.imgHolder}>
                 <div className={styles.screenWrapper} ref={screenRef}>
                     <div className={styles.map}>
-                        <GoogleMapReact
-                            bootstrapURLKeys={{ key: "" }}
-                            defaultCenter={defaultProps.center}
-                            defaultZoom={defaultProps.zoom}
-                        >
-                            <AnyReactComponent
-                                lat={10.99835602}
-                                lng={77.01502627}
-                                text="My Marker"
-                            />
-                        </GoogleMapReact>
+                        {!isLoaded ? (
+                            <h1>Loading...</h1>
+                        ) : (
+                            <GoogleMap
+                                mapContainerClassName={styles.mapContainer}
+                                center={center}
+                                zoom={13}
+                            >
+                                {marker && <Marker position={{ lat: 44.2782847, lng: 19.8818699 }} />}
+                            </GoogleMap>
+
+                        )}
+                       
                     </div>
                     <img className={styles.screenImg} src={screen} alt="" />
                 </div>

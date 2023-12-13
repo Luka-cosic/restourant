@@ -20,10 +20,10 @@ const Footer = () => {
             </div>
             <div className={styles.findUs}>
                 <h2 className={styles.heading}>FIND US ON</h2>
-                <a href="https://www.youtube.com/" target="_blank"><ImPlay className={styles.icons} /></a>
-                <a href="https://www.facebook.com/" target="_blank"><ImFacebook2 className={styles.icons} /></a>
-                <a href="https://www.youtube.com/" target="_blank"><ImTwitter className={styles.icons} /></a>
-                <a href="https://www.youtube.com/" target="_blank" ><ImInstagram className={styles.icons} /></a>
+                <a href="https://www.youtube.com/" ><ImPlay className={styles.icons} /></a>
+                <a href="https://www.facebook.com/" ><ImFacebook2 className={styles.icons} /></a>
+                <a href="https://www.youtube.com/" ><ImTwitter className={styles.icons} /></a>
+                <a href="https://www.youtube.com/"  ><ImInstagram className={styles.icons} /></a>
             </div>
             <div className={styles.policies}>
                 <h2 className={styles.heading}>POLICIES</h2>

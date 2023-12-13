@@ -1,7 +1,7 @@
 import axios from "axios";
 import { getUser } from "../components/Login/JS/login";
 
-const API = axios.create({ baseURL: "http://localhost:5000" });
+const API = axios.create({ baseURL: "https://restaurant1-1089fa3ddcde.herokuapp.com/" });
 API.interceptors.request.use((req)=>{
     if(getUser()){
         req.headers.Authorization = "Bearer " + getUser().token

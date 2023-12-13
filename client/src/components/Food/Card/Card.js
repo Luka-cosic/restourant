@@ -5,7 +5,7 @@ import { likeMeal, deleteMeal, cart } from "../../../api/index";
 import { getUser, saveUser } from "../../Login/JS/login";
 import { GrCart } from "react-icons/gr";
 import Comments from "./Comments/Comments";
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef } from 'react';
 import { commentMeal } from "../../../api/index";
 
 

@@ -1,5 +1,5 @@
 import styles from "./css/section2.module.css";
-import { useRef, useEffect, useLayoutEffect  } from "react";
+import { useRef, useLayoutEffect  } from "react";
 import { addClass } from "./JS/sec2.js";
 import { useNavigate } from "react-router-dom";
 import "./css/sec2.css";

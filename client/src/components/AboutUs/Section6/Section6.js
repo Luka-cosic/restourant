@@ -2,7 +2,7 @@ import styles from "./css/sec6.module.css";
 import { useRef, useEffect } from "react";
 import img1 from "./images/img1.png";
 import "./css/sec6.css";
-import { gsapAnimate } from "./JS/gsapAnimate";
+
 
 const Section6 = ()=>{
    

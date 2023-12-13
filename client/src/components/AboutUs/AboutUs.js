@@ -9,7 +9,7 @@ import Section7 from "./Section7/Section7.js";
 import Section8 from "./Section8/Section8.js";
 import Section9 from "./Section9/Section9.js";
 import Footer from "./Footer/Footer.js";
-import {useRef} from "react";
+// import {useRef} from "react";
 
 import styles from "./css/aboutUs.module.css";
 // import "./css/simple.css";
@@ -18,7 +18,7 @@ const AboutUs = ({ closeChange }) => {
 
     closeChange?.remove("change");
     
-    const imgRef = useRef(null);
+    // const imgRef = useRef(null);
 
     return (
         <div className={styles.container} >

@@ -1,6 +1,6 @@
 import styles from "./css/sec4.module.css";
 
-import { useRef, useLayoutEffect } from "react";
+import { useRef } from "react";
 import img1 from "./images/img1.png";
 // import img2 from "./images/koli2.jpg";
 // import img3 from "./images/koli3.jpg";

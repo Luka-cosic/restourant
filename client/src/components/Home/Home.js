@@ -4,7 +4,8 @@ import "./home.css";
 
 function Home ({closeChange}){
     closeChange?.remove("change");
-
+    
+    
     return(
         <div className="home">
             <Menu />
