@@ -5,7 +5,7 @@ import { useRef, useLayoutEffect } from "react";
 import "./css/sec7.css";
 
 import jah1 from "./images/jahorina.jpg";
-import jah2 from "./images/jahorina2.jpg";
+
 import jah3 from "./images/jahorina3.jpg";
 import jah4 from "./images/jahorina4.jpg";
 import jah5 from "./images/jahorina5.jpg";
@@ -38,7 +38,7 @@ const Section7 = () => {
             const stopPanel2 = sections.findIndex((section) => section.dataset.pin2);
           
             
-            const tl = gsap
+            gsap
                 .timeline({
                     defaults: {
                         ease: "none"

@@ -69,7 +69,7 @@ const Book = ({ closeChange, bookedTables, setBookedTables }) => {
     })
 
     useEffect(() => {
-        getAll()
+        getAll();
     }, [])
     return (
         <div className={styles.container}>

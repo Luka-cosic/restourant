@@ -2,13 +2,13 @@ import style from "./css/sec8.module.css";
 import { useEffect, useRef } from "react";
 import "./css/simple.css";
 import { AiFillCaretLeft } from "react-icons/ai";
-import { makeOpacity, sliderLeft, sliderRight } from "./JS/plain";
+import {  sliderLeft, sliderRight } from "./JS/plain";
 import { gsap } from "gsap";
 
 
 
 const Section2 = () => {
-    const cover = useRef();
+    
     const zoomImg = useRef();
     const handleEffects = useRef();
     const changeText = useRef();
@@ -28,7 +28,7 @@ const Section2 = () => {
             let secondImg = self.selector(".img_2")[0];
             let img3 = self.selector(".img_1")[0];
 
-            const tl = gsap.timeline({
+             gsap.timeline({
                 defaults: { ease: "none", duration: 2 },
                 scrollTrigger: {
                     trigger: sec8Ref.current,
