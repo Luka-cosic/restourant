@@ -19,7 +19,7 @@ const Card = ({el})=>{
     }
 
     const socetIoFunc = (data) =>{
-        const socket = io('http://localhost:5000');
+        const socket = io('https://restaurant1-1089fa3ddcde.herokuapp.com/');
        
             socket.emit('deleteCard', data);
           

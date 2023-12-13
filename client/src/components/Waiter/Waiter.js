@@ -8,7 +8,7 @@ import "./css/waiter.css";
 
 const Waiter = ({ closeChange, bookedTables, setBookedTables }) => {
     closeChange?.remove("change");
-    const socket = io('http://localhost:5000');
+    const socket = io('https://restaurant1-1089fa3ddcde.herokuapp.com/');
 
    
     const closeComment = (e) => {

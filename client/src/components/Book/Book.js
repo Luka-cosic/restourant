@@ -21,7 +21,7 @@ const Book = ({ closeChange, bookedTables, setBookedTables }) => {
 
 
     const socetIOFunc = (data)=>{
-        const socket = io('http://localhost:5000');
+        const socket = io('https://restaurant1-1089fa3ddcde.herokuapp.com/');
         
         if (data) {
             socket.emit('bookTable', data);

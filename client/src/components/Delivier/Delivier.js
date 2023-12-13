@@ -15,7 +15,7 @@ const Delivier = ({ allOrdered, setAllOrdered })=>{
         setAllOrdered(data.allOrders);
     }
     const socetIOFunc = ()=>{
-        const socket = io('http://localhost:5000');
+        const socket = io('https://restaurant1-1089fa3ddcde.herokuapp.com/');
         socket.on('fromServer', (msg) => {
             setAllOrdered(msg)  
         });
