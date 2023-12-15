@@ -8,7 +8,7 @@ import "./css/waiter.css";
 
 const Waiter = ({ closeChange, bookedTables, setBookedTables }) => {
     closeChange?.remove("change");
-    const socket = io('https://restaurant1-1089fa3ddcde.herokuapp.com/');
+    const socket = io('https://restaurant1-1089fa3ddcde.herokuapp.com');
 
    
     const closeComment = (e) => {
@@ -22,6 +22,8 @@ const Waiter = ({ closeChange, bookedTables, setBookedTables }) => {
         const { data } = await deleteCard(id);
         // const socket = io('http://localhost:5000');
         if (data) {
+            console.log('radi');
+            
             socket.emit('deleteTable', data);
           }
         // setBookedTables(data);

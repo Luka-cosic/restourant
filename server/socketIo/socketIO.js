@@ -24,6 +24,8 @@ export const socketIO = (httpServer)=>{
         });
 
         socket.on('deleteTable', (msg) => {
+          console.log('server side on delete');
+          
           io.emit('fromServerDT', msg);
         });
       
