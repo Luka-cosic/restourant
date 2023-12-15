@@ -5,7 +5,8 @@ export const socketIO = (httpServer)=>{
 
      const io = new Server(httpServer,{
         cors: {
-          origin: "https://restaurant111.netlify.app/"
+          origin: "*"
+          
         }
       });
 
