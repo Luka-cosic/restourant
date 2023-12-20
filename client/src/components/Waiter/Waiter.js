@@ -15,6 +15,8 @@ const Waiter = ({ closeChange, bookedTables, setBookedTables }) => {
         e.currentTarget.parentNode.parentNode.parentNode.parentNode.classList.remove("openComment");
     }
     const openComment = (e) => {
+        console.log(e.target);
+        
         e.target.parentNode.parentNode.classList.add("openComment");
     }
     const handleDelete = async (e) => {
@@ -22,8 +24,6 @@ const Waiter = ({ closeChange, bookedTables, setBookedTables }) => {
         const { data } = await deleteCard(id);
         // const socket = io('http://localhost:5000');
         if (data) {
-            console.log('radi');
-            
             socket.emit('deleteTable', data);
           }
         // setBookedTables(data);
@@ -60,14 +60,14 @@ const Waiter = ({ closeChange, bookedTables, setBookedTables }) => {
                 </div>
                 <div className={styles.footer}>
                     <div className={styles.comment} onClick={openComment} style={table.comment? {backgroundColor: "green"} : {}} >Comment</div>
-                    <div className={styles.commentContent}>
+                    <div className={`${styles.commentContent} commentSection`}>
                         <div className={styles.comFooter}>
                             <div className={styles.closeBtn} onClick={closeComment} >
                                 <BsBoxArrowDownLeft />
                             </div>
                             <a className={styles.link} href="https://mail.google.com/mail/u/0/#inbox?compose=new">Go To Email</a>
                         </div>
-                        <div className={styles.comBody}>{table.comment}</div>
+                        <div className={`${styles.comBody} comBody`}>{table.comment}</div>
                     </div>
                     <button className={styles.delete} onClick={handleDelete}>Delete</button>
                 </div>

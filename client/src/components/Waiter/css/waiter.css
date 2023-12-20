@@ -1,9 +1,18 @@
 
-.openComment .waiter_commentContent__czhUn{
+/* .openComment .waiter_commentContent__czhUn{
+    width: 105%;
+    height: 30rem;
+} */
+.openComment .commentSection{
     width: 105%;
     height: 30rem;
 }
-.openComment .waiter_comBody__uWyhn{
+/* .openComment .waiter_comBody__uWyhn{
+    opacity: 1;
+    transition: opacity 0.5s 0.7s;
+
+} */
+.openComment .comBody{
     opacity: 1;
     transition: opacity 0.5s 0.7s;
 
