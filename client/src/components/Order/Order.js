@@ -50,7 +50,7 @@ const Order = ({ closeChange, addToCart, setAddToCart }) => {
         }
     }
     const socetIoFunc = (data) =>{
-        const socket = io('http://localhost:5000');
+        const socket = io('https://restaurant1-1089fa3ddcde.herokuapp.com');
         // socket.on('connect', () => console.log(socket.id));
         if (data) {
             socket.emit('chat message', data);

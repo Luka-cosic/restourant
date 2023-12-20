@@ -15,18 +15,14 @@ const Waiter = ({ closeChange, bookedTables, setBookedTables }) => {
         e.currentTarget.parentNode.parentNode.parentNode.parentNode.classList.remove("openComment");
     }
     const openComment = (e) => {
-        console.log(e.target);
-        
         e.target.parentNode.parentNode.classList.add("openComment");
     }
     const handleDelete = async (e) => {
         let id = e.target.parentNode.parentNode.firstChild.innerText;
         const { data } = await deleteCard(id);
-        // const socket = io('http://localhost:5000');
-        if (data) {
-            socket.emit('deleteTable', data);
-          }
-        // setBookedTables(data);
+      
+        if (data) { socket.emit('deleteTable', data); }
+       
     }
 
     const getBookdTables_1 = async ()=>{
