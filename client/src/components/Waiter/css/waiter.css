@@ -4,6 +4,7 @@
     height: 30rem;
 } */
 .openComment .commentSection{
+    display: block;
     width: 105%;
     height: 30rem;
 }

@@ -63,6 +63,7 @@
     box-shadow: 0.1rem 0.1rem 0.2rem #b38f00;
 }
 .commentContent{
+    display: none;
     width: 0;
     height: 0;
     background-color:  #ffb3ec;
