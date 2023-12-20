@@ -130,3 +130,24 @@
 .admin{
     color: #fff;
 }
+
+@media( max-width:768px ){
+    .navbarContainer{
+        width: 90%;
+    }
+    .logoUser{
+        display: none;
+    }
+    .navBtn{
+        display: none;
+    }
+    .right{
+        width: 20rem;
+    }
+    .login{
+        width: 20rem;
+    }
+    /* .navBtn{
+        ma
+    } */
+}

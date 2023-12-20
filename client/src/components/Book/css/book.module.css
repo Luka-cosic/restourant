@@ -5,12 +5,14 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    padding-top: 10rem;
 }
 .wrapp{
     width: 50%;
     position: relative;
     display: flex;
     flex-direction: column;
+    /* align-items: center; */
 }
 .heading{
     font-size: 3rem;
@@ -21,6 +23,7 @@
 }
 .form{
     display: flex;
+    /* align-items: center; */
     justify-content: space-between;
     margin-bottom: 2rem;
 }
@@ -60,17 +63,14 @@
     justify-content: space-between;
     align-items: center;
     margin-bottom: 4rem;
-    /* background-color: aqua; */
+ 
 }
 
 .tables{
     width: 100%;
      height:100%;
     position: relative;
-    /* background-color: aqua; */
 }
-
-
 
 .img1, .img2{
     width: 60rem;
@@ -79,7 +79,20 @@
 .img1{
     display: none;
 }
-
+.alert{
+    position: absolute; 
+     /* left: 60rem;  */
+    top: 30rem;  
+    width: 40rem;
+    background-color: green;
+    text-align: center;
+    border-radius: 0.5rem;
+    box-shadow: 0.2rem 0.2rem 0.3rem green;
+    padding: 2rem 0 2rem 0;
+}
+.alert p{
+    font-size: 3rem;
+}
 .baseBtn1, .baseBtn2, .bookBtn{
     width: 15rem;
     height: 4rem;
@@ -117,5 +130,68 @@
    text-align: center;
 }
 
-
+/* RESPONSE */
+@media( max-width: 1100px){
+    .btnWrapper{
+        position: relative;
+    }
+    .bookBtn{
+        position: static;
+    }
+}
+@media( max-width: 900px){
+    .container{
+        width: 100vw;
+        height: 100vh;
+        background: linear-gradient( black , red);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding-top: 10rem;
+    }
+    .wrapp{
+        width: 90%;
+        align-items: center;
+    }
+    .form{
+        /* width: 40rem; */
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .col1:nth-child(1){
+        margin-right: 2rem;
+    }
+    .col1:nth-child(3){
+        width: 0;
+    }
+    input{
+        margin-bottom: 0.5rem;
+    }
+    .textarea{
+        display: none;
+    }
+    .heading{
+        display: none;
+    }
+    .imgWrapper{
+        width: 30rem;
+        height: 20rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1rem;
+     
+    }
+    .img1, .img2{
+        width: 30rem;
+        height: 20rem;
+    }
+    .baseBtn1, .baseBtn2, .bookBtn{
+        width: 10rem;
+        margin-right: 1rem;
+        margin-bottom: 1rem;
+    }
+}
+/* END OF RESPONSE */
 

@@ -7,7 +7,7 @@ import { entrance, ground } from './JS/allTables.js';
 import Table from "./Table/Table.js";
 import TableG from "./TableG/TableG.js";
 import { io } from 'socket.io-client';
-import "./css/book.css";
+
 
 
 const Book = ({ closeChange, bookedTables, setBookedTables }) => {
@@ -15,28 +15,29 @@ const Book = ({ closeChange, bookedTables, setBookedTables }) => {
     closeChange?.remove("change");
     const img1Ref = useRef(null);
     const img2Ref = useRef(null);
-    
-    const [entrance_X, setEntrance_X ] = useState(true)
-    const [ book, setBook] = useState({ date: "", time: "", table: "", persons: "", name: "", phone: "", email: "", comment: "" });
 
+    const [entrance_X, setEntrance_X] = useState(true)
+    const [book, setBook] = useState({ date: "", time: "", table: "", persons: "", name: "", phone: "", email: "", comment: "" });
+    const [showAlert, setShowAlert] = useState(false)
 
-    const socetIOFunc = (data)=>{
+    const socetIOFunc = (data) => {
         const socket = io('https://restaurant1-1089fa3ddcde.herokuapp.com/');
-        
+
         if (data) {
             socket.emit('bookTable', data);
-          }
+        }
     }
 
-    const handleBook = async ()=>{
-       const { data } = await bookTable(book);
-       socetIOFunc(data);
-      
-       
-    //    setBookedTables(data);
-       
+    const handleBook = async () => {
+        const { data } = await bookTable(book);
+        socetIOFunc(data);
+        setBook({ date: "", time: "", table: "", persons: "", name: "", phone: "", email: "", comment: "" });
+        if (data) {
+            setShowAlert(true);
+            setTimeout(() => { setShowAlert(false) }, 4000);
+        }
     }
-    
+
     const getAll = async () => {
         let { data } = await getBookdTables();
         setBookedTables(data);
@@ -57,19 +58,19 @@ const Book = ({ closeChange, bookedTables, setBookedTables }) => {
         }
     }
 
-   
-    const allTables = entrance.map((table)=>{
-        
+
+    const allTables = entrance.map((table) => {
+
         return <Table table={table} book={book} setBook={setBook} bookedTables={bookedTables} key={table.id} />
     })
-     
-        
-    const allTablesG = ground.map((table)=>{
+
+
+    const allTablesG = ground.map((table) => {
         return <TableG table={table} book={book} setBook={setBook} bookedTables={bookedTables} key={table.id} />
     })
 
     useEffect(() => {
-        
+
         getAll();
     }, [])
     return (
@@ -79,23 +80,23 @@ const Book = ({ closeChange, bookedTables, setBookedTables }) => {
                 <form className={styles.form}>
                     <div className={styles.col1}>
                         <div className={styles.row1}>
-                            <input className={styles.inpHalf} type="date" onChange={(e) => { setBook({ ...book, date: e.target.value }) }} placeholder="Reservation date" />
-                            <input className={styles.inpHalf} type="number" onChange={(e) => { setBook({ ...book, time: e.target.value }) }} placeholder="Time (HH:MM)" />
+                            <input className={styles.inpHalf} type="date" onChange={(e) => { setBook({ ...book, date: e.target.value }) }} value={book.date} placeholder="Reservation date" required />
+                            <input className={styles.inpHalf} type="number" onChange={(e) => { setBook({ ...book, time: e.target.value }) }} value={book.time} placeholder="Time (HH:MM)" required />
                         </div>
                         <div className={styles.tableIn}>
-                            <input id={styles.pavle} className={styles.input} type="text" onChange={(e) => { setBook({ ...book, table: e.target.value }) }} value={book.table} placeholder="Booked tables" readOnly />
+                            <input id={styles.pavle} className={styles.input} type="text" onChange={(e) => { setBook({ ...book, table: e.target.value }) }} value={book.table} placeholder="Booked tables" readOnly required />
                         </div>
-                        <input className={styles.input} type="text" onChange={(e) => { setBook({ ...book, persons: e.target.value }) }} placeholder="Nr. of persons" />
+                        <input className={styles.input} type="text" onChange={(e) => { setBook({ ...book, persons: e.target.value }) }} value={book.persons} placeholder="Nr. of persons" />
 
                     </div>
                     <div className={styles.col1}>
-                        <input className={styles.input} type="text" onChange={(e) => { setBook({ ...book, name: e.target.value }) }} placeholder="Name" />
-                        <input className={styles.input} type="text" onChange={(e) => { setBook({ ...book, phone: e.target.value }) }} placeholder="Phone" />
-                        <input className={styles.input} type="text" onChange={(e) => { setBook({ ...book, email: e.target.value }) }} placeholder="Email" />
+                        <input className={styles.input} type="text" onChange={(e) => { setBook({ ...book, name: e.target.value }) }} value={book.name} placeholder="Name" required />
+                        <input className={styles.input} type="text" onChange={(e) => { setBook({ ...book, phone: e.target.value }) }} value={book.phone} placeholder="Phone" required />
+                        <input className={styles.input} type="text" onChange={(e) => { setBook({ ...book, email: e.target.value }) }} value={book.email} placeholder="Email" required />
 
                     </div>
                     <div className={styles.col1}>
-                        <textarea className={styles.textarea} onChange={(e) => { setBook({ ...book, comment: e.target.value }) }} placeholder="Comment" cols="30" rows="10"></textarea>
+                        <textarea className={styles.textarea} onChange={(e) => { setBook({ ...book, comment: e.target.value }) }} value={book.comment} placeholder="Comment" cols="30" rows="10"></textarea>
                     </div>
                 </form>
                 <div className={styles.imgWrapper}>
@@ -103,7 +104,7 @@ const Book = ({ closeChange, bookedTables, setBookedTables }) => {
                         <div className={styles.imgDiv}>
                             <div className={styles.tables}>
 
-                                { entrance_X && allTables }
+                                {entrance_X && allTables}
 
                                 <img className={styles.img1} src={img2} ref={img1Ref} alt="" />
                             </div>
@@ -111,13 +112,19 @@ const Book = ({ closeChange, bookedTables, setBookedTables }) => {
                         <div className={styles.imgDiv}>
                             <div className={styles.tables}>
 
-                                { !entrance_X && allTablesG}
+                                {!entrance_X && allTablesG}
 
                                 <img className={styles.img2} src={img1} ref={img2Ref} alt="" />
                             </div>
                         </div>
                     </div>
                 </div>
+                {showAlert &&
+                    <div className={styles.alert}>
+                        <p>You have successfully reserved a table</p>
+                    </div>
+                }
+
                 <div className={styles.btnWrapper}>
                     <button className={styles.baseBtn2} onClick={() => { changePicture(false); setEntrance_X(true) }}>Entrance</button>
                     <button className={styles.baseBtn1} onClick={() => { changePicture(true); setEntrance_X(false) }} >Ground Floor</button>

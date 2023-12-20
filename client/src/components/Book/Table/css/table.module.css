@@ -1,7 +1,7 @@
 .ta{
     width: 2.5rem;
     height: 2.5rem;
-    background-color:transparent;
+    background-color:blue;
     position:absolute;
     cursor: pointer;
     
@@ -51,8 +51,6 @@
     background-color: red;
 
 }
-
-
 
 .ta:nth-child(1){
     top: 3.5rem;
@@ -109,3 +107,67 @@
      right: 10rem;
       z-index: 2;
   }
+
+  /* RESPONSE */
+  @media( max-width: 900px){
+    .ta{
+        width: 1.5rem;
+        height: 1.5rem;
+    }
+    .ta:nth-child(1){
+        top: 3rem;
+        left: 1.5rem;
+         z-index: 2;
+     }
+     .ta:nth-child(2){
+        top: 3rem;
+        left: 6.8rem;
+         z-index: 2;
+     }
+     .ta:nth-child(3){
+        top: 3rem;
+        left: 9rem;
+         z-index: 2;
+     }
+     .ta:nth-child(4){
+        top: 3rem;
+        left: 13rem;
+         z-index: 2;
+     }
+     .ta:nth-child(5){
+        top: 3rem;
+        left: 15rem;
+         z-index: 2;
+     }
+     .ta:nth-child(6){
+        top: 3rem;
+        left: 17rem;
+         z-index: 2;
+     }
+     .ta:nth-child(7){
+        top: 3rem;
+        left: 19rem;
+         z-index: 2;
+     }
+     .ta:nth-child(8){
+        top: 3rem;
+        left: 21rem;
+         z-index: 2;
+     }
+     .ta:nth-child(9){
+        top: 12rem;
+        left: 23.5rem;
+         z-index: 2;
+     }
+     .ta:nth-child(10){
+        top: 14rem;
+        left: 23.5rem;
+         z-index: 2;
+     }
+     .ta:nth-child(11){
+        top: 16rem;
+        left: 23.5rem;
+         z-index: 2;
+     }
+  }
+  /*END OF RESPONSE */
