@@ -7,6 +7,8 @@ import { io } from 'socket.io-client';
 
 
 const Delivier = ({ allOrdered, setAllOrdered })=>{
+    const socket = io('https://restaurant1-1089fa3ddcde.herokuapp.com/');
+    
     const allOrders = allOrdered.map((el, i)=>{
         return <Card el={el} key={i} />
     })
@@ -15,7 +17,7 @@ const Delivier = ({ allOrdered, setAllOrdered })=>{
         setAllOrdered(data.allOrders);
     }
     const socetIOFunc = ()=>{
-        const socket = io('https://restaurant1-1089fa3ddcde.herokuapp.com/');
+        
         socket.on('fromServer', (msg) => {
             setAllOrdered(msg)  
         });
