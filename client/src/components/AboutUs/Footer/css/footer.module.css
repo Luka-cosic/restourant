@@ -4,15 +4,16 @@
     background: #43434399;
     display: flex;
     align-items: center;
-    justify-content: space-around;
-    
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 2rem 2rem;
 }
 
 /* CONTACT */
 .contact{
     width: 45rem;
     height: 10rem;
-  
+    margin-bottom: 2rem;
 }
 .heading{
     font-size: 3rem;
@@ -36,6 +37,7 @@ p{
 .findUs{
     width: 45rem;
     height: 10rem;
+    margin-bottom: 2rem;
 }
 .icons{
     font-size: 3rem;
@@ -47,3 +49,15 @@ p{
     width: 45rem;
     height: 10rem;
 }
+
+/* RESPONSE */
+    @media( max-width: 900px){
+        .container{
+            height: 50vh;
+            
+        }
+        .contact{
+            margin-bottom: 5rem;
+        }
+    }
+/*END OF RESPONSE */

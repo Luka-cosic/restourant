@@ -21,7 +21,12 @@
     color: #fff;
     text-shadow: 0.1rem 0.1rem 0.3rem rgb(14, 209, 248);
     letter-spacing: 0.2rem;
-
+    transform: translateX(-300%);
+}
+.textDiv{
+    transform: translateY(200%);
+    opacity: 0;
+    transition: transform 0.5s;
 }
 .text{
     width: 50rem;
@@ -45,3 +50,39 @@
     opacity: 0.8;
     
 }
+
+/* RESPONSE */
+
+@media(max-width:1400px){
+    .section6{
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .leftSide{
+        width: 100%;
+        left: 50%;
+        transform: translateX(-50%); 
+    }
+    .rightSide{
+        right: none;
+        width:100%;
+        opacity: 0.5;
+    }
+    .textDiv{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .text{
+        width: 80%;
+        font-size: 2rem;
+        text-align: center;
+        color: #fff;
+        text-shadow: 0.1rem 0.1rem 0.1rem #fff;
+        letter-spacing: 0.1rem;
+    
+    }
+}
+/*END OF RESPONSE */

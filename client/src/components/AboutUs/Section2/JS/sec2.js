@@ -1,5 +1,7 @@
  export const addClass = (e, sec2Ref)=>{
-        if(e.target.documentElement.scrollTop > 200){
+        console.log(window.innerWidth);
+        
+        if(e.target.documentElement.scrollTop > window.innerHeight / 4){
             sec2Ref.current.classList.add("sec2Change")
         }
     

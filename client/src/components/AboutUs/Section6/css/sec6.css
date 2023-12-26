@@ -1,11 +1,9 @@
-
-/* .action .leftSide{
-    color: white;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
+.sec6Change .heading{
+    opacity: 1;
+    transform: translateX(0);
 }
-.action .rightSide{
-    right: 50%;
-    transform: translateX(50%);
-} */
+
+.sec6Change .textDiv{
+    opacity: 1;
+    transform: translateY(0);
+}

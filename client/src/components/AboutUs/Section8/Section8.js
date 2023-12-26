@@ -1,8 +1,7 @@
 import style from "./css/sec8.module.css";
 import { useEffect, useRef } from "react";
 import "./css/simple.css";
-import { AiFillCaretLeft } from "react-icons/ai";
-import {  sliderLeft, sliderRight } from "./JS/plain";
+
 import { gsap } from "gsap";
 
 
@@ -13,18 +12,14 @@ const Section2 = () => {
     const handleEffects = useRef();
     const changeText = useRef();
     const sec8Ref = useRef();
-    let leftArrow = useRef();
-    let rightArrow = useRef();
+    
 
-    const handleLeft = () => { sliderLeft(leftArrow) };
-    const handleRight = () => { sliderRight(rightArrow) };
+   
 
     useEffect(() => {
-        // const handleScroll = e => { makeOpacity(cover, zoomImg, handleEffects, changeText) }
-        // window.addEventListener('scroll', handleScroll);
+        
         const ctx = gsap.context((self) => {
-            // console.log(zoomImg);
-            // console.log(sec8Ref);
+           
             let secondImg = self.selector(".img_2")[0];
             let img3 = self.selector(".img_1")[0];
 
@@ -34,9 +29,8 @@ const Section2 = () => {
                     trigger: sec8Ref.current,
                     pin: true,
                     scrub: 0,
-                    // start: () => "+=" + sec8Ref.current.offsetWidth * 3,
                     end: () => "+=" + sec8Ref.current.offsetWidth *3,
-                    // markers: true
+                   
                 }
             })
                 .to(zoomImg.current, {
@@ -44,16 +38,15 @@ const Section2 = () => {
                     x: 0,
                     y: 0,
                     opacity: 0,
-                    // duration: 5
+                   
                 })
                 
                 .to(secondImg, {
                     opacity: 1,
-                    // duration: 1
+                   
                 })
                 .to(changeText.current,{
                     yPercent: -100,
-                    // duration: 5
                 },"<")
                 .to(secondImg, {
                     opacity: 0,
@@ -68,9 +61,7 @@ const Section2 = () => {
     return (
         <div className={style.section_2} ref={sec8Ref}>
             <div className={style.section_2wrapp} >
-                {/* <div className={`${style.cover} cover`} ref={cover}>
-                    <img src="../../../images/aboutUs/restaurant1.png" alt="cover" />
-                </div> */}
+                
                 <div className={style.all}>
                     <div className={style.imageHolder} ref={handleEffects}>
                         <div className={`${style.imgWrapp} img_3`} ref={zoomImg}>
@@ -82,12 +73,7 @@ const Section2 = () => {
                         <div className={`${style.imgWrapp} img_1`}>
                             <img src="../../../images/aboutUs/restaurant2.jpg" className={style.img} alt="" />
                         </div>
-                        <div className={`${style.arrowLeft} arrowLeft arrows`} ref={leftArrow}>
-                            <AiFillCaretLeft onClick={handleLeft} />
-                        </div>
-                        <div className={`${style.arrowRight} arrowRight arrows`} ref={rightArrow}>
-                            <AiFillCaretLeft className={`${style.arrowRight}`} onClick={handleRight} />
-                        </div>
+                       
                     </div>
                     <div className={style.textHolder} >
                         <div className={style.textWrapp} ref={changeText}>

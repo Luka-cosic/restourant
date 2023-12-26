@@ -7,13 +7,13 @@
    display: flex;
    align-items: center;
    justify-content: center;
-   perspective: 90rem;
+   /* perspective: 90rem; */
    z-index: 2;
 }
 .videoWrapper{
     position: absolute;
-    width: 40rem;
-    height: 50rem;  
+    width: 100vw;
+    height: 100vh; 
     background-color: #000;
     animation: fullScreen 1s 1s forwards;
 }
@@ -28,6 +28,8 @@ video{
 }
 .sec_1_heading{
     position: absolute;
+    width: 100%;
+    text-align: center;
     font-size: 8rem;
     color: #fff;
     z-index: 5;
@@ -35,7 +37,7 @@ video{
     letter-spacing: 1rem;
     opacity: 1;
     font-family: 'Oswald', sans-serif;
-    font-size: 900;
+    font-weight: 900;
     animation: titleDesap 1s 1s forwards;
 }
 @keyframes fullScreen {
@@ -46,3 +48,12 @@ video{
     0% {opacity: 1; transform:translateZ(0); letter-spacing: 0.8rem;}
     100%{ opacity: 0; transform:translateZ(-20rem); letter-spacing: 1.5rem;}
 }
+
+
+/* RESPONSE */
+@media( max-width: 900px){
+    .sec_1_heading{
+        font-size: 3rem;
+    }
+}
+/*END OF  RESPONSE */

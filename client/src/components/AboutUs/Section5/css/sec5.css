@@ -1,10 +1,9 @@
-
-/* .animate .leftSide{
-    left: 50%;
-    transform: translateX(-50%);
+.sec5Change .heading{
+    opacity: 1;
+    transform: translateX(0);
 }
-.animate .rightSide{
-    color: white;
-    right: 50%;
-    transform: translateX(50%);
-} */
+
+.sec5Change .textDiv{
+    opacity: 1;
+    transform: translateY(0);
+}

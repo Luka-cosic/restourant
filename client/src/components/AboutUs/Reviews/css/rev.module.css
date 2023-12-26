@@ -124,3 +124,39 @@
 .circlee:hover{
     opacity: 1;
 }
+
+/* RESPONSE */
+@media( max-width: 950px ){
+    .section_10_text_holder{
+        align-items: center;
+        justify-content: center;
+    }
+    .sec_10_describe{
+        width: 50rem;
+        font-size: 1.8rem;
+        text-shadow: none;
+
+    }
+}
+@media( max-width: 630px ){
+    .section_10_header{
+        font-size: 4rem;
+    }
+    .move_header{
+        font-size: 2rem;
+    }
+    .sec_10_describe{
+        width: 40rem;
+    }
+}
+@media( max-width: 500px ){
+    
+    .sec_10_describe{
+        width: 30rem;
+        margin-bottom: 2rem;
+    }
+    .circle_wrapper{
+        transform: translateY(5rem);
+    }
+}
+/*END OF RESPONSE */

@@ -44,3 +44,17 @@
 .tableWrapper{
     width: 100%;
 }
+
+/* RESPONSE */
+@media( max-width:900px ){
+    .container{
+
+        height: 90vh;
+       
+    }
+    .imgHolder{
+        width: 100%;
+        
+    }
+}
+/*END OF RESPONSE */
