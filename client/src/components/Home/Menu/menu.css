@@ -13,4 +13,25 @@
     font-size: 2rem;
     font-family: 'Oswald', sans-serif;
     cursor: pointer;
+    text-shadow: 0.1rem 0.1rem 0.1rem black;
+    letter-spacing: 0.1rem;
 }
+
+
+/* RESPONSE */
+@media( max-width: 900px){
+    .menu{
+        top: 15%;
+        left: 50%;
+        transform: translateX(-50%);
+        flex-direction: row;
+        width: 50%;
+    }
+}
+@media( max-width: 500px){
+    .menu{
+        width: 80%;
+    }
+    
+}
+/*END OF RESPONSE */
